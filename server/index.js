@@ -1,13 +1,8 @@
 const express = require("express");
 const app = express();
+const routes = require('./routes')
 
-const User = require("./routes/user");
-const Profile = require("./routes/profile");
-const Post = require("./routes/post");
-
-// routes
-app.use("/api/users", User);
-app.use("/api/profile", Profile);
-app.use("/api/posts", Post);
+// general route
+app.use('/api', routes)
 
 module.exports = app;
