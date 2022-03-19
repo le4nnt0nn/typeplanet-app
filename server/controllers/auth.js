@@ -52,6 +52,14 @@ async function authAndGetToken(req, res) {
             return res.status(400).json({ errors: [{ msg: 'Invalid credentials :(' }] });
         }
 
+        // password from body is equal to user password
+        const isEqual = await bcrypt.compare(password, user.password);
+
+        // if passwords not equals => 400 (Bad Request)
+        if(!isEqual) {
+            return res.status(400).json({ errors: [{ msg: 'Invalid credentials :(' }] })
+        }
+
         // return jwt with payload
         const payload = {
             user: {
