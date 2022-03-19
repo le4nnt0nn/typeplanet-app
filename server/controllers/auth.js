@@ -23,7 +23,7 @@ async function getPassword(req, res) {
         // 500 Server Error
         res.status(500).send('Server error');
     }
-};
+}
 
 /**
  * @route    POST api/auth
@@ -70,7 +70,7 @@ async function authAndGetToken(req, res) {
         // 500 Server Error
         res.status(500).send('Server error');
     }
-};
+}
 
 module.exports = {
     getPassword,
