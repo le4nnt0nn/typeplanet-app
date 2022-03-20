@@ -1,7 +1,4 @@
-const express = require("express");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
-const auth = require("../middleware/auth");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const { validationResult } = require("express-validator");
@@ -29,7 +26,7 @@ async function getPassword(req, res) {
  * @route    POST api/auth
  * @desc     Auth user and get token
  * @access   PUBLIC
- *
+ * Middleware auth
  */
 
 async function authAndGetToken(req, res) {
@@ -56,7 +53,7 @@ async function authAndGetToken(req, res) {
         const isEqual = await bcrypt.compare(password, user.password);
 
         // if passwords not equals => 400 (Bad Request)
-        if(!isEqual) {
+        if (!isEqual) {
             return res.status(400).json({ errors: [{ msg: 'Invalid credentials :(' }] })
         }
 
