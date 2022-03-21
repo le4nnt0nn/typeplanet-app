@@ -133,7 +133,7 @@ async function follow(req, res) {
         switch (action) {
             case 'follow':
                 await Promise.all([
-                    user.findByIdAndUpdate(followers, { $push: { following: following } }),
+                    user.findByIdAndUpdate(follower, { $push: { following: following } }),
                     user.findByIdAndUpdate(following, { $push: { followers: follower } })
 
                 ]);
@@ -141,7 +141,7 @@ async function follow(req, res) {
 
             case 'unfollow':
                 await Promise.all([
-                    user.findByIdAndUpdate(followers, { $pull: { following: following } }),
+                    user.findByIdAndUpdate(follower, { $pull: { following: following } }),
                     user.findByIdAndUpdate(following, { $pull: { followers: follower } })
 
                 ]);
