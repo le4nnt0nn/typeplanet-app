@@ -35,7 +35,7 @@ async function register(req, res) {
         // random params for generate avatar
         const genders = ['male', 'female'];
 
-        const genderRandom = Math.floor(Math.random() * gendersArray.length);
+        const genderRandom = Math.floor(Math.random() * genders.length);
         const id = Math.floor(Math.random() * 100) + 1;
 
         const avatar = toonavatar.generate_avatar({ 'gender': `${genders[genderRandom]}`, 'id': `${id}` });
