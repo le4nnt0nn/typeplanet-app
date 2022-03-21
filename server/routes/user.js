@@ -9,6 +9,7 @@ router.post('/register', [
     check('email', 'Please insert a valid email').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 })
 ], UserController.register)
+    .post('/follow/:id', UserController.follow)
     .get('/', UserController.getAllUsers)
     .get('/:id', UserController.getUserById)
     //.put('/', UserController.**)

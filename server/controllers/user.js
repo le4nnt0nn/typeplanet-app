@@ -112,7 +112,52 @@ async function getUserById(req, res) {
  * 
  */
 
-// TODO - Update User logic
+// TODO - PUT
+
+/**
+ * Follow
+ * 
+ * @route POST /api/users/follow/:id
+ * @desc Follow & following route
+ * @access PRIVATE
+ * 
+ */
+
+async function follow(req, res) {
+    const user = await User.findById(req.params.id);
+
+    // get follower, following & action from body
+    const { follower, following, action } = req.body;
+
+    try {
+        switch (action) {
+            case 'follow':
+                await Promise.all([
+                    user.findByIdAndUpdate(followers, { $push: { following: following } }),
+                    user.findByIdAndUpdate(following, { $push: { followers: follower } })
+
+                ]);
+                break;
+
+            case 'unfollow':
+                await Promise.all([
+                    user.findByIdAndUpdate(followers, { $pull: { following: following } }),
+                    user.findByIdAndUpdate(following, { $pull: { followers: follower } })
+
+                ]);
+                break;
+
+            default:
+                break;
+        }
+
+        res.json({ done: true });
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+}
 
 /**
  * Remove User
@@ -132,5 +177,6 @@ module.exports = {
     register,
     getAllUsers,
     getUserById,
+    follow,
     deleteUser
 }
