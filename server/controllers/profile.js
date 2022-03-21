@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const fetch = require('node-fetch');
+const fetch = require('cross-fetch');
 
 const User = require('../models/User');
 const Profile = require('../models/Profile');
