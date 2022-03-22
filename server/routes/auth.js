@@ -9,6 +9,6 @@ router.post('/', [
     check('email', 'Please insert a valid email').isEmail(),
     check('password', 'Password is required').exists()
 ], AuthController.authAndGetToken)
-    .get('/', auth, AuthController.getPassword)
+    .get('/', auth, AuthController.getUserByToken)
 
 module.exports = router;

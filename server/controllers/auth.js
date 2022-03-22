@@ -10,9 +10,9 @@ const { validationResult } = require("express-validator");
  *
  */
 
-async function getPassword(req, res) {
+async function getUserByToken(req, res) {
     try {
-        // get password from user id
+        // no get password from user id
         const user = await User.findById(req.user.id).select('-password');
         res.json(user);
     } catch (err) {
@@ -78,6 +78,6 @@ async function authAndGetToken(req, res) {
 }
 
 module.exports = {
-    getPassword,
+    getUserByToken,
     authAndGetToken
 };
