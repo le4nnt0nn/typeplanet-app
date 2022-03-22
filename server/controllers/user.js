@@ -169,8 +169,8 @@ async function follow(req, res) {
  */
 
 async function deleteUser(req, res) {
-    const user = await User.findById(req.params.id);
-    res.json(user);
+    const user = await User.findByIdAndDelete(req.params.id);
+    res.json({ msg: `User has been removed: ${user}`});
 }
 
 module.exports = {
