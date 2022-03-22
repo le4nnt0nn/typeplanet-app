@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const fetch = require('cross-fetch');
+const mongoose = require("mongoose");
 
 const User = require('../models/User');
 const Profile = require('../models/Profile');
@@ -59,7 +60,7 @@ async function createProfile(req, res) {
     if (bio) profileStored.bio = bio;
     // split topics by ,
     if (topics) {
-        profileStored.topics = topics.split(",").map((topic) => topic.trim());
+        profileStored.topics = topics.toString().split(",").map((topic) => topic.trim());
     }
     if (posts) profileStored.posts = posts;
     if (githubuser) profileStored.githubuser = githubuser;
@@ -71,7 +72,7 @@ async function createProfile(req, res) {
         // if profile exists, update an set the profileStored fields & is new
         if (profile) {
             profile = await Profile.findByIdAndUpdate(
-                { user: req.user.id },
+                { _id: profile._id },
                 { $set: profileStored },
                 { new: true }
             );
@@ -81,6 +82,8 @@ async function createProfile(req, res) {
 
         // create profile
         profile = new Profile(profileStored);
+
+
 
         await profile.save();
         res.json(profile);

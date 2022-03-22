@@ -13,13 +13,10 @@ const ProfileSchema = new mongoose.Schema({
         type: String,
         default: 'This is my bio and I really love Astro'
     },
-    topics: [
-        {
-            type: String,
-            required: true,
-            default: 'HTML,CSS,JS'
-        },
-    ],
+    topics: {
+        type: [String],
+        required: true,
+    },
     posts: {
         type: Number,
         default: 0
