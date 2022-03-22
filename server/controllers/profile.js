@@ -83,8 +83,6 @@ async function createProfile(req, res) {
         // create profile
         profile = new Profile(profileStored);
 
-
-
         await profile.save();
         res.json(profile);
     } catch (err) {
