@@ -179,8 +179,7 @@ async function getGithubUsername(req, res) {
             // get repos from username using GitHub API
             uri: `https://api.github.com/users/${req.params.username
                 }/repos?per_page=5&
-                  sort=created:asc&client_id=${config.get('githubclientId')}&client_secret=$
-                  {config.get('githubSecret')}`,
+                  sort=created:asc`,
             method: "GET",
         };
         fetch(githubOptions, (error, response, body, next) => {
