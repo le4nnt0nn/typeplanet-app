@@ -11,7 +11,7 @@ router.post('/', [auth, [check('text', 'Text is required').not().isEmpty()]], Po
     .delete('/:id', auth, PostController.deletePost)
     .put('/like/:id', auth, PostController.putLike)
     .put('/unlike/:id', auth, PostController.removeLike)
-    .post('/comments/:id', [auth, [check('text', 'Text is required').not().isEmpty()]], PostController.postComment)
+    .post('/comment/:id', [auth, [check('text', 'Text is required').not().isEmpty()]], PostController.postComment)
     .delete('/comment/:id/:comment_id', auth, PostController.removeComment)
 
 module.exports = router;
