@@ -108,6 +108,10 @@ async function deletePost(req, res) {
         // if the user id stored in the post is not equals to the user id, then error 401 -> Unauthorized
         if (post.user.toString() !== req.user.id) return res.status(401).json({ msg: 'User not authorized to complete this action' });
 
+        await post.remove();
+
+        res.json({ msg: 'Post hass been removed :)' });
+
     } catch (err) {
         // 500 -> Server Error
         console.error(err.message);
@@ -249,6 +253,8 @@ async function removeComment(req, res) {
         // remove comment from comments array
         post.comments.splice(rmIndex, 1);
         await post.save();
+        res.json(post.comments)
+
     } catch (err) {
         console.log(err.message);
         res.status(500).send('Server error');
