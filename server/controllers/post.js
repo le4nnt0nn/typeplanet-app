@@ -23,8 +23,8 @@ async function createPost(req, res) {
     }
 
     try {
-        // store user password in const (find by id)
-        const user = await User.findById(req.user.id).select('-password');
+        // store user in const (find by id)
+        let user = await User.findById(req.user.id).select('-password');
 
         // create Post with user info
         const newPost = new Post({
@@ -35,6 +35,14 @@ async function createPost(req, res) {
         })
 
         const post = await newPost.save();
+        // user gain level creating post
+        user.update({ level: user.level + 0.3 }, function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(result);
+            }
+        });
         res.json(post);
 
     } catch (err) {
