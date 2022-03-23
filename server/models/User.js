@@ -44,6 +44,7 @@ const UserSchema = new mongoose.Schema({
     ],
     level: {
         type: Number,
+        max: 30,
         default: 0
     },
     createdDate: {

@@ -35,14 +35,17 @@ async function createPost(req, res) {
         })
 
         const post = await newPost.save();
-        // user gain level creating post
-        user.update({ level: user.level + 0.3 }, function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(result);
-            }
-        });
+        // if user reach the max level, no level up
+        if (user.level < 30) {
+            // user gain level creating post
+            user.update({ level: user.level + 0.3 }, function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(result);
+                }
+            });
+        }
         res.json(post);
 
     } catch (err) {
