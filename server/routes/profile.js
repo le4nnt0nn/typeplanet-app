@@ -11,5 +11,5 @@ router.get('/me', auth, ProfileController.getMyProfile)
     .get('/', ProfileController.getAllProfiles)
     .get('/user/:user_id', auth, ProfileController.getProfileByUserId)
     .delete('/', auth, ProfileController.removeProfile)
-    .get('/github/:username', auth, ProfileController.getGithubUsername)
+    .get('/github/:username', auth, ProfileController.getGithubRepos)
 module.exports = router;

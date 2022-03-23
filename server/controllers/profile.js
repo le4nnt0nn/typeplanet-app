@@ -172,7 +172,7 @@ async function removeProfile(req, res) {
  * 
  */
 
-async function getGithubUsername(req, res) {
+async function getGithubRepos(req, res) {
     try {
         const githubOptions = {
             headers: { 'user-agent': 'node.js' },
@@ -206,5 +206,5 @@ module.exports = {
     getProfileByUserId,
     createProfile,
     removeProfile,
-    getGithubUsername
+    getGithubRepos
 }
