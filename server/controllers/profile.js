@@ -138,7 +138,39 @@ async function getProfileByUserId(req, res) {
     }
 }
 
-// TODO - PUT 
+/**
+ * @route    PUT api/profile/topics
+ * @desc     Edit topics for profile
+ * @access   PRIVATE
+ * 
+ * Private -> you must be logged in to use it
+ * Middleware auth
+ */
+
+async function editTopics(req, res) {
+    // store errors
+    const errors = validationResult(req);
+    // if errors exists, then 400
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+    // get new topics from body
+    const { topics } = req.body;
+
+    // try find current user and update topics, error -> 500 Server Error 
+    try {
+        const profile = await Profile.findOneAndUpdate(
+            req.user.id, { topics: topics })
+
+        await profile.save();
+
+        res.json(profile);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server error');
+    }
+
+}
 
 /**
  * @route    DELETE api/profile
@@ -205,6 +237,7 @@ module.exports = {
     getMyProfile,
     getProfileByUserId,
     createProfile,
+    editTopics,
     removeProfile,
     getGithubRepos
 }

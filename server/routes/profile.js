@@ -10,6 +10,7 @@ router.get('/me', auth, ProfileController.getMyProfile)
                     check('topics', 'At least ONE topic is required').not().isEmpty()], ProfileController.createProfile)
     .get('/', ProfileController.getAllProfiles)
     .get('/user/:user_id', auth, ProfileController.getProfileByUserId)
+    .put('/topics', auth, ProfileController.editTopics)
     .delete('/', auth, ProfileController.removeProfile)
     .get('/github/:username', auth, ProfileController.getGithubRepos)
 module.exports = router;
