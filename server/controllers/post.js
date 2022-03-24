@@ -29,11 +29,13 @@ async function createPost(req, res) {
         // create Post with user info
         const newPost = new Post({
             text: req.body.text,
+            categories: req.body.categories,
             name: user.name,
             avatar: user.avatar,
             user: req.user.id
         })
 
+        // categories MUST be the choosen in Post Model
         const post = await newPost.save();
         // if user reach the max level, no level up
         if (user.level < 30) {

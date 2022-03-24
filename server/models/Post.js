@@ -15,6 +15,7 @@ const PostSchema = new mongoose.Schema({
     avatar: {
         type: String,
     },
+    categories: { type: [String], enum: ['Content', 'Interesting', 'Question', 'React', 'Angular', 'JavaScript', 'Java', 'C#'], default: 'Content', required: true },
     likes: [
         {
             user: {
