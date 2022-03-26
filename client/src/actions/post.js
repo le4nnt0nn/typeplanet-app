@@ -27,7 +27,9 @@ export const getAllPosts = () => async (dispatch) => {
         dispatch({
             type: POST_ERROR,
             payload: {
-                msg: err.response.statusText + 'GET_POSTS Error :('
+                // text & status from err response
+                msg: err.response.statusText + 'GET_POSTS Error :(',
+                status: err.response.status,
             }
         });
     }
