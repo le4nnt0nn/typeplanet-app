@@ -78,7 +78,7 @@ const addLike = (id) => async (dispatch) => {
             type: POST_ERROR,
             payload: {
                 // text & status from err response
-                msg: err.response.statusText + 'UPDATE_LIKES Error :(',
+                msg: err.response.statusText + 'UPDATE_LIKES Error :( -> (addLike)',
                 status: err.response.status,
             }
         });
@@ -103,7 +103,7 @@ const removeLike = (id) => async (dispatch) => {
             type: POST_ERROR,
             payload: {
                 // text & status from err response
-                msg: err.response.statusText + 'UPDATE_LIKES Error :(',
+                msg: err.response.statusText + 'UPDATE_LIKES Error :( -> (removeLike)',
                 status: err.response.status,
             }
         });
