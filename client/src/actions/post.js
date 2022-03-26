@@ -3,7 +3,7 @@ import {
     GET_POSTS,
     GET_POST,
     POST_ERROR,
-    PUT_LIKES,
+    UPDATE_LIKES,
     DELETE_POST,
     ADD_POST,
     ADD_COMMENT,
@@ -14,7 +14,7 @@ import {
 * @desc Get all posts using /api/posts 
 */
 
-export const getAllPosts = () => async (dispatch) => {
+const getAllPosts = () => async (dispatch) => {
     try {
         // get response from request
         const res = await axios.get('/api/posts');
@@ -33,4 +33,86 @@ export const getAllPosts = () => async (dispatch) => {
             }
         });
     }
+};
+
+/**
+* @desc Get post
+*/
+
+const getPost = (id) => async (dispatch) => {
+    try {
+        // get post from response
+        const res = await axios.get(`/api/posts/${id}`);
+
+        dispatch({
+            type: GET_POST,
+            payload: res.data
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {
+                // text & status from err response
+                msg: err.response.statusText + 'GET_POST Error :( where Post ID is: ' + id,
+                status: err.response.status,
+            }
+        });
+    }
+};
+
+/**
+* @desc Put like to post
+*/
+
+const addLike = (id) => async (dispatch) => {
+    try {
+        // put post wich will be liked
+        const res = axios.put(`/api/posts/like/${id}`);
+
+        dispatch({
+            type: UPDATE_LIKES,
+            payload: { id, likes: res.data },
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {
+                // text & status from err response
+                msg: err.response.statusText + 'UPDATE_LIKES Error :(',
+                status: err.response.status,
+            }
+        });
+    }
+};
+
+/**
+* @desc Remove like from post
+*/
+
+const removeLike = (id) => async (dispatch) => {
+    try {
+        // put post wich will be unliked
+        const res = await axios.put(`/api/posts/unlike/${id}`);
+
+        dispatch({
+            type: UPDATE_LIKES,
+            payload: { id, likes: res.data },
+        });
+    } catch (err) {
+        dispatch({
+            type: POST_ERROR,
+            payload: {
+                // text & status from err response
+                msg: err.response.statusText + 'UPDATE_LIKES Error :(',
+                status: err.response.status,
+            }
+        });
+    }
+};
+
+module.exports = {
+    getAllPosts,
+    getPost,
+    addLike,
+    removeLike,
 }
