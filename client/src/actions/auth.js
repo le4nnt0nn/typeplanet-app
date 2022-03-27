@@ -118,7 +118,7 @@ const logout = () => async (dispatch) => {
     dispatch({
         type: DO_LOGOUT
     });
-}
+};
 
 module.exports = {
     loadUser,
