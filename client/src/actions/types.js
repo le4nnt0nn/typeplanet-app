@@ -1,5 +1,6 @@
 // generics
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+export const DO_LOGOUT = 'DO_LOGOUT';
 
 // about post
 export const GET_POSTS = 'GET_POSTS';
