@@ -28,10 +28,7 @@ const loadUser = () => async (dispatch) => {
     try {
         // get res from /api/auth
         const res = await axios.get('/api/auth');
-        dispatch({
-            type: LOADED_USER,
-            payload: res.data,
-        });
+        dispatch({ type: LOADED_USER, payload: res.data });
     } catch (err) {
         dispatch({
             type: AUTH_ERROR,
@@ -60,10 +57,7 @@ const register = ({ name, email, password, city, birth }) => async (dispatch) =>
     try {
         // create user with body params and config
         const res = await axios.post('/api/users', body, config);
-        dispatch({
-            type: REGISTER_SUCCESS,
-            payload: res.data,
-        });
+        dispatch({ type: REGISTER_SUCCESS, payload: res.data });
 
         // loads user with token
         dispatch(loadUser());
@@ -96,10 +90,7 @@ const login = ({ email, password }) => async (dispatch) => {
     try {
         // login user with body params and config
         const res = await axios.post('/api/users', body, config);
-        dispatch({
-            type: LOGIN_SUCCESS,
-            payload: res.data,
-        });
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 
         // loads user with token
         dispatch(loadUser());
