@@ -10,6 +10,8 @@ import {
     REMOVE_COMMENT
 } from './types';
 
+// TODO - Tostify Notifications
+
 /**
 * @desc Get all posts using /api/posts 
 */
