@@ -17,7 +17,7 @@ import {
  * @desc loads user with token from localStorage & then takes a response from request
  */
 
-const loadUser = () => async (dispatch) => {
+export const loadUser = () => async (dispatch) => {
     const { token } = localStorage;
 
     if (token) {
@@ -45,7 +45,7 @@ const loadUser = () => async (dispatch) => {
  * @desc register user getting name, email, password, city & birth 
  */
 
-const register = ({ name, email, password, city, birth }) => async (dispatch) => {
+export const register = ({ name, email, password, city, birth }) => async (dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const register = ({ name, email, password, city, birth }) => async (dispatch) =>
  * @desc login user with email & password from body
  */
 
-const login = ({ email, password }) => async (dispatch) => {
+export const login = ({ email, password }) => async (dispatch) => {
     const config = {
         headers: {
             'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ const login = ({ email, password }) => async (dispatch) => {
  * @desc multiple action for logout & clear profile
  */
 
-const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
     dispatch({
         type: CLEAR_PROFILE
     });
@@ -119,10 +119,3 @@ const logout = () => async (dispatch) => {
         type: DO_LOGOUT
     });
 };
-
-module.exports = {
-    loadUser,
-    register,
-    login,
-    logout
-}
