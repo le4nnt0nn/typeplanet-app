@@ -14,6 +14,4 @@ const setAuthToken = (token) => {
     }
 }
 
-module.exports = {
-    setAuthToken
-}
+export default setAuthToken;
