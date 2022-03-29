@@ -70,7 +70,7 @@ async function register(req, res) {
 
     } catch (err) {
         console.error(err.message);
-        res.status(500).send('Uppppsss... Server Error!');
+        res.status(500);
     }
 }
 
