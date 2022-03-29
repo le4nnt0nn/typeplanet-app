@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+body {
+  /* fallback for old browsers */
+  background: rgb(54, 54, 54);
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgb(39, 39, 39)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgb(39, 39, 39)
+  );
+}
+
+.gradient-custom {
+  /* fallback for old browsers */
+  background: rgb(54, 54, 54);
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgb(39, 39, 39)
+  );
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(54, 54, 54),
+    rgb(39, 39, 39)
+  );
+}
+
+/* custom styles */
+
+.custom-primary {
+  color: rgb(180, 128, 211);
+}
+
+.custom-secondary {
+  text-decoration: none;
+  color: rgb(162, 53, 224);
+}
+.custom-secondary:hover {
+  color: rgb(118, 9, 182);
+}
+
+/* button */
+.custom-primary-button {
+  color: rgb(180, 128, 211);
+}
+
+/* link */
+.custom-secondary {
+  text-decoration: none;
+  color: rgb(162, 53, 224);
+}
+.custom-secondary:hover {
+  text-decoration: none;
+  color: rgb(118, 9, 182);
+}
