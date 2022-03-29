@@ -1,12 +1,30 @@
-import './App.css';
+import { useEffect } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+import './App.css';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
+
+// redux stuff (for works with redux)
+import { Provider } from 'react-redux';
+import store from "./utils/store";
+import { loadUser } from './actions/auth';
+
+
+
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
-    <div className="App">
-        <p>
-          Welcome to TypePlanet
-        </p>
-    </div>
+    <Provider store={store}>
+      <BrowserRouter>
+        <>
+          <Register/>
+        </>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
