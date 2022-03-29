@@ -31,12 +31,7 @@ export const loadUser = () => async (dispatch) => {
         dispatch({ type: LOADED_USER, payload: res.data });
     } catch (err) {
         dispatch({
-            type: AUTH_ERROR,
-            payload: {
-                // text & status from err response
-                msg: err.response.statusText + 'AUTH_ERROR :(',
-                status: err.response.status,
-            }
+            type: AUTH_ERROR
         });
     }
 };
@@ -56,7 +51,7 @@ export const register = ({ name, email, password, city, birth }) => async (dispa
 
     try {
         // create user with body params and config
-        const res = await axios.post('/api/users', body, config);
+        const res = await axios.post('/api/users/register', body, config);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
 
         // loads user with token
@@ -64,12 +59,7 @@ export const register = ({ name, email, password, city, birth }) => async (dispa
 
     } catch (err) {
         dispatch({
-            type: REGISTER_FAIL,
-            payload: {
-                // text & status from err response
-                msg: err.response.statusText + 'REGISTER_FAIL :(',
-                status: err.response.status,
-            }
+            type: REGISTER_FAIL
         });
     }
 };
@@ -89,7 +79,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 
     try {
         // login user with body params and config
-        const res = await axios.post('/api/users', body, config);
+        const res = await axios.post('/api/auth', body, config);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 
         // loads user with token
@@ -97,12 +87,7 @@ export const login = ({ email, password }) => async (dispatch) => {
 
     } catch (err) {
         dispatch({
-            type: LOGIN_FAIL,
-            payload: {
-                // text & status from err response
-                msg: err.response.statusText + 'LOGIN_FAIL :(',
-                status: err.response.status,
-            }
+            type: LOGIN_FAIL
         });
     }
 };
