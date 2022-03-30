@@ -37,54 +37,54 @@ const Register = ({ register, isAuth }) => {
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                                 <div class="text-white custom-primary">
-                                    <form class="p-5 text-center" className='form' onSubmit={(e) => handleSubmit(e)}>
+                                    <form class="p-5 text-center" className="form" onSubmit={(e) => handleSubmit(e)}>
                                         <h2 class="mb-2 text-uppercase">Register</h2>
                                         <p class="text-white-50 mb-5">Join into the biggest dev community!</p>
 
-                                        <div className='form-group form-outline form-white mb-4'>
+                                        <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
-                                                type='text'
-                                                placeholder='Name'
-                                                name='name'
+                                                type="text"
+                                                placeholder="Name"
+                                                name="name"
                                                 value={name}
                                                 onChange={(e) => handleInput(e)}
                                                 required
                                             />
                                         </div>
 
-                                        <div className='form-group form-outline form-white mb-4'>
+                                        <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
-                                                type='email'
-                                                placeholder='Email Address'
+                                                type="email"
+                                                placeholder="Email Address"
                                                 value={email}
                                                 onChange={(e) => handleInput(e)}
-                                                name='email'
+                                                name="email"
                                             />
                                         </div>
-                                        <div className='form-group form-outline form-white mb-4'>
+                                        <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
-                                                type='password'
-                                                placeholder='Password'
-                                                name='password'
-                                                minLength='6'
+                                                type="password"
+                                                placeholder="Password"
+                                                name="password"
+                                                minLength="6"
                                                 value={password}
                                                 onChange={(e) => handleInput(e)}
                                             />
                                         </div>
-                                        <div className='form-group form-outline form-white mb-4'>
+                                        <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
-                                                type='text'
-                                                placeholder='City'
-                                                name='city'
+                                                type="text"
+                                                placeholder="City"
+                                                name="city"
                                                 value={city}
                                                 onChange={(e) => handleInput(e)}
                                             />
                                         </div>
-                                        <div className='form-group form-outline form-white mb-4'>
+                                        <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
                                                 type="text"
@@ -98,7 +98,7 @@ const Register = ({ register, isAuth }) => {
 
 
                                         <p className="my-4">
-                                            Already have an account? <Link to="/login" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Sign In</span></Link>
+                                            Already have an account? <Link to="/login" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Login Now</span></Link>
                                         </p>
 
                                     </form>
