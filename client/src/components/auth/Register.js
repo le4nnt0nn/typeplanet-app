@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import { register } from '../../actions/auth';
 
 const Register = ({ register, isAuth }) => {
+
+    // state for FormData
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -14,6 +16,7 @@ const Register = ({ register, isAuth }) => {
         birth: "",
     });
 
+    // get props from formData
     const { name, email, password, city, birth } = formData;
 
     const handleInput = (e) => {
