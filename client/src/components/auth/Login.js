@@ -22,8 +22,7 @@ const Login = ({ login, isAuth }) => {
     const handleSubmit = async (e) => {
         // cancels the event if it is cancelable
         e.preventDefault();
-
-        login(email, password);
+        login({ email, password });
     }
 
     // if user logged then redirects to /home
