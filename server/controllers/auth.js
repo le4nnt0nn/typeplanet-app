@@ -18,7 +18,7 @@ async function getUserByToken(req, res) {
     } catch (err) {
         console.error(err.message);
         // 500 Server Error
-        res.status(500).send('Server error');
+        res.status(500);
     }
 }
 
@@ -39,6 +39,7 @@ async function authAndGetToken(req, res) {
 
     // get email & password from body
     const { email, password } = req.body;
+    console.log(email)
 
     try {
         // find user by body email
@@ -64,6 +65,8 @@ async function authAndGetToken(req, res) {
             }
         };
 
+        // check if works
+        console.log('logged!');
         // sign with finded user by email
         jwt.sign(payload, 'mysecrettoken:P', { expiresIn: 360000 },
             (err, token) => {
@@ -72,8 +75,9 @@ async function authAndGetToken(req, res) {
                 res.json({ token });
             })
     } catch (err) {
-        // 500 Server Error
-        res.status(500).send('Server error');
+        // 500 Server Error & check if not works
+        console.log('not logged');
+        res.status(500);
     }
 }
 
