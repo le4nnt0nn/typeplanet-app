@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 // components
-import AllRoutes from './components/routing/AllRoutes';
 import Initial from './components/setup/Initial';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
