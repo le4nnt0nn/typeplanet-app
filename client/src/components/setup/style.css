@@ -106,8 +106,48 @@ h1 {
     -1px 1px 0 #fff;
 }
 
+.logo {
+  width: 17%;
+}
+.astro {
+  padding-top: 20px;
+  width: 15%;
+  transform: translatey(0px);
+	animation: float 3s ease-in-out infinite;
+}
+
+/* animations */
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+/* responsive */
+
+@media screen and (max-width: 1200px) {
+  .logo {
+    width: 150px;
+  }
+  .astro {
+    width: 150px;
+  }
+}
+
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 80px;
+  }
+  .logo {
+    width: 150px;
+  }
+  .astro {
+    width: 150px;
   }
 }
