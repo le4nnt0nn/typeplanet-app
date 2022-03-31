@@ -32,6 +32,9 @@ const Login = ({ login, isAuth }) => {
         <>
             <body>
                 <section class="gradient-custom">
+                    <nav class="float-end d-flex mr-2">
+                        <div class="topbar_item"><Link to="/">Back</Link></div>
+                    </nav>
                     <div class="container py-5 mt-5 text-center">
                         <div class="row d-flex justify-content-center align-items-center h-100">
                             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
