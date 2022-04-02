@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
 
+// tostify
+import { ToastContainer } from 'react-toastify';
+
 const Login = ({ login, isAuth }) => {
 
     // state for FormData
@@ -68,6 +71,7 @@ const Login = ({ login, isAuth }) => {
                                         </div>
 
                                         <input type="submit" className="btn btn-outline-light btn-lg px-5 custom-primary-button" value="Login" />
+                                        <ToastContainer/>
 
                                         <p className="my-4">
                                             Don"t have an account? <Link to="/register" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Sign Up</span></Link>
