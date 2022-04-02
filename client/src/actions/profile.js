@@ -8,7 +8,8 @@ import {
     GET_REPOS
 } from './types';
 
-// TODO - Tostify Notifications
+// toastify
+import { success, error } from '../utils/toasts';
 
 /**
 * @desc Get current user profile 
@@ -151,6 +152,7 @@ const removeProfile = () => async (dispatch) => {
             dispatch({
                 type: ACCOUNT_DELETE,
             });
+            success('Profile removed... see you soon 🌠');
 
         } catch (err) {
             dispatch({
@@ -161,6 +163,7 @@ const removeProfile = () => async (dispatch) => {
                     status: err.response.status,
                 }
             });
+            error('Something went wrong 👽');
         }
     }
 }

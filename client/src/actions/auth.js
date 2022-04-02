@@ -11,6 +11,9 @@ import {
     CLEAR_PROFILE
 } from './types';
 
+// toastify
+import { success, error } from '../utils/toasts';
+
 // TEMPORAL ERROR RESPONSES
 
 /**
@@ -53,6 +56,7 @@ export const register = ({ name, email, password, city, birth }) => async (dispa
         // create user with body params and config
         const res = await axios.post('/api/users/register', body, config);
         dispatch({ type: REGISTER_SUCCESS, payload: res.data });
+        success('Welcome to our planet! 🪐');
 
         // loads user with token
         dispatch(loadUser());
@@ -61,6 +65,7 @@ export const register = ({ name, email, password, city, birth }) => async (dispa
         dispatch({
             type: REGISTER_FAIL
         });
+        error('Something went wrong 👽');
     }
 };
 
@@ -81,6 +86,7 @@ export const login = ({ email, password }) => async (dispatch) => {
         // login user with body params and config
         const res = await axios.post('/api/auth', body, config);
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+        success('Now you are logged pal! 🚀');
 
         // loads user with token
         dispatch(loadUser());
@@ -89,6 +95,7 @@ export const login = ({ email, password }) => async (dispatch) => {
         dispatch({
             type: LOGIN_FAIL
         });
+        error('Invalid credentials 👽');
     }
 };
 
@@ -103,4 +110,5 @@ export const logout = () => async (dispatch) => {
     dispatch({
         type: DO_LOGOUT
     });
+    success('We will miss you! 🌠');
 };
