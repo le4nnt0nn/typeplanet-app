@@ -47,6 +47,7 @@ async function authAndGetToken(req, res) {
 
         // user not exists with this email
         if (!user) {
+            console.log('email not exists');
             return res.status(400).json({ errors: [{ msg: 'Invalid credentials :(' }] });
         }
 
@@ -55,6 +56,7 @@ async function authAndGetToken(req, res) {
 
         // if passwords not equals => 400 (Bad Request)
         if (!isEqual) {
+            console.log('incorrect password');
             return res.status(400).json({ errors: [{ msg: 'Invalid credentials :(' }] })
         }
 
