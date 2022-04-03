@@ -1,13 +1,15 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const Initial = ({ isAuth }) => {
 
     // if user logged then redirects to /home
-    // TODO - REDIRECT HOME
+    if (isAuth) {
+        return <Navigate replace to="/home" />
+    }
 
     return (
         <body>
@@ -21,7 +23,7 @@ const Initial = ({ isAuth }) => {
                         <div class="mt-5 text-center">
                             <img class="logo" alt="Logo" src="logo.png" />
                             <h3>Hey dev! Join into</h3>
-                            <h1>TypePlanet</h1>
+                            <h1 class="title">TypePlanet</h1>
                             <Link to="/login"><input type="submit" className="btn btn-outline-light btn-lg px-5 custom-primary-button" value="Discover Now" /></Link>
                             <p className="mt-4 text-white">
                                 Already have an account? <Link to="/login" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Welcome Back</span></Link>
