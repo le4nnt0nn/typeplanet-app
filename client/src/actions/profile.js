@@ -15,7 +15,7 @@ import { success, error } from '../utils/toasts';
 * @desc Get current user profile 
 */
 
-const getCurrentProfile = () => async (dispatch) => {
+export const getCurrentProfile = () => async (dispatch) => {
     try {
         // get current profile
         const res = await axios.get('/api/profile/me');
@@ -40,7 +40,7 @@ const getCurrentProfile = () => async (dispatch) => {
 * @desc Get all profiles
 */
 
-const getAllProfiles = () => async (dispatch) => {
+export const getAllProfiles = () => async (dispatch) => {
 
     // before request
     dispatch({ type: CLEAR_PROFILE });
@@ -69,7 +69,7 @@ const getAllProfiles = () => async (dispatch) => {
 * @desc Get profile by user id
 */
 
-const getProfileById = (userId) => async (dispatch) => {
+export const getProfileById = (userId) => async (dispatch) => {
     try {
         // get user profile
         const res = await axios.get(`/api/profile/user/${userId}`);
@@ -102,7 +102,7 @@ const getProfileById = (userId) => async (dispatch) => {
 * @param edit if is true, update profile
 */
 
-const createProfile = (formData, edit = false) => async (dispatch) => {
+export const createProfile = (formData, edit = false) => async (dispatch) => {
     try {
         const config = {
             headers: {
@@ -138,7 +138,7 @@ const createProfile = (formData, edit = false) => async (dispatch) => {
 * @desc Remove a profile
 */
 
-const removeProfile = () => async (dispatch) => {
+export const removeProfile = () => async (dispatch) => {
 
     if (window.confirm('You are going to delete your profile, are you sure about that? :(')) {
         try {
@@ -166,13 +166,4 @@ const removeProfile = () => async (dispatch) => {
             error('Something went wrong 👽');
         }
     }
-}
-
-
-module.exports = {
-    getCurrentProfile,
-    getAllProfiles,
-    getProfileById,
-    createProfile,
-    removeProfile,
 }
