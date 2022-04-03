@@ -8,6 +8,7 @@ import './App.css';
 import Initial from './components/setup/Initial';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Home from './components/home/Home';
 
 // redux stuff (for works with redux)
 import { Provider } from 'react-redux';
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/" element={<Initial />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </Provider>
