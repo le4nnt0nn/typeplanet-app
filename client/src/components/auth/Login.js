@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
@@ -29,7 +29,9 @@ const Login = ({ login, isAuth }) => {
     }
 
     // if user logged then redirects to /home
-    // TODO - REDIRECT HOME
+    if (isAuth) {
+        return <Navigate replace to="/home" />
+    }
 
     return (
         <>
@@ -71,7 +73,7 @@ const Login = ({ login, isAuth }) => {
                                         </div>
 
                                         <input type="submit" className="btn btn-outline-light btn-lg px-5 custom-primary-button" value="Login" />
-                                        <ToastContainer/>
+                                        <ToastContainer />
 
                                         <p className="my-4">
                                             Don"t have an account? <Link to="/register" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Sign Up</span></Link>

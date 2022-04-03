@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../actions/auth';
@@ -33,7 +33,9 @@ const Register = ({ register, isAuth }) => {
     };
 
     // if user auths then redirects to /home
-    // TODO - REDIRECT HOME
+    if (isAuth) {
+        return <Navigate replace to="/home" />
+    }
 
     return (
         <>
@@ -104,7 +106,7 @@ const Register = ({ register, isAuth }) => {
                                             />
                                         </div>
                                         <input type="submit" className="btn btn-outline-light btn-lg px-5 custom-primary-button" value="Register" />
-                                        <ToastContainer/>
+                                        <ToastContainer />
 
                                         <p className="my-4">
                                             Already have an account? <Link to="/login" style={{ textDecoration: "none" }}><span class="fw-bold custom-secondary">Login Now</span></Link>
