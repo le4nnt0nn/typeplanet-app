@@ -10,6 +10,7 @@ import './style.css';
 import { ToastContainer } from 'react-toastify';
 
 import NavbarRoot from '../setup/Navbar';
+import { Forecast } from '../home/weather/Forecast';
 
 /**
  * @desc fetch data using actions, bring from redux's state and send it to components
@@ -31,7 +32,7 @@ const Home = ({
                 <section class="gradient-custom">
                     <NavbarRoot />
                     <div class="container py-5 mt-5 text-center">
-                        <h1>a</h1>
+                        <Forecast />
                     </div>
                 </section>
             </body>
