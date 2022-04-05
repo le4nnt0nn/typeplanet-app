@@ -1,0 +1,9 @@
+.temp-wrapper {
+    border-radius: 10px;
+}
+
+.temp {
+    font-weight: bold;
+    font-size: 60px;
+    color: rgb(75, 43, 77);
+}
