@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './style.css';
 import { BrowserRouter, Link, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -31,8 +32,8 @@ const Home = ({
             <body>
                 <section class="gradient-custom">
                     <NavbarRoot />
-                    <div class="container py-5 mt-5 text-center">
-                        <Forecast />
+                    <div class="weather-wrapper container w-100 text-center">
+                        <Forecast/>
                     </div>
                 </section>
             </body>
