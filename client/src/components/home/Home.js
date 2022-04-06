@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { BrowserRouter, Link, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { getCurrentProfile, removeProfile } from "../../actions/profile";
 
@@ -27,13 +28,27 @@ const Home = ({
         getCurrentProfile();
     }, [getCurrentProfile]);
 
+    // city
+    let [name, setName] = useState('');
+
+    async function getUsername() {
+        const res = await axios.get('/api/auth');
+        return res.data.name;
+    };
+    // set name from current user
+    useEffect(() => {
+        getUsername().then(data => setName(data))
+    }, [name]);
+
     return (
         <>
             <body>
                 <section class="gradient-custom">
                     <NavbarRoot />
-                    <div class="weather-wrapper container w-100 text-center">
-                        <Forecast/>
+                    <img class="astro astro-home center" src="astro2.png" alt="Astro" />
+                    <h3 class="user-text text-center"><strong>{name}</strong>'s spaceship</h3>
+                    <div class="weather-wrapper container mt-5 text-center">
+                        <Forecast />
                     </div>
                 </section>
             </body>
