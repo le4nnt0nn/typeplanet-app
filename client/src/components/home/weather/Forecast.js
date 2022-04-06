@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useForceUpdate from 'use-force-update';
 import { Conditions } from './Conditions';
 
-import axios from 'axios'
+import axios from 'axios';
 
 export const Forecast = () => {
 
