@@ -19,7 +19,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 <Link to='/posts' className='link'>Posts</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to='/users' className='link'>AstroDevs</Link>
+                <Link to='/devs' className='link'>AstroDevs</Link>
             </Nav.Link>
             <Nav.Link>
                 <Link to='/me' className='link'>
