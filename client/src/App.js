@@ -9,6 +9,7 @@ import Initial from './components/setup/Initial';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Home from './components/home/Home';
+import Profiles from './components/profile/Profiles';
 
 // redux stuff (for works with redux)
 import { Provider } from 'react-redux';
@@ -27,7 +28,8 @@ const App = () => {
           <Route path="/" element={<Initial />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/devs' element={<Profiles />} />
         </Routes>
       </BrowserRouter>
     </Provider>
