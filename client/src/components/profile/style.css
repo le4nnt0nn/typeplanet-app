@@ -1,0 +1,35 @@
+
+/* ProfileCard styles */
+
+.profile-card {
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 20px;
+    width: 500px;
+}
+
+.secondary-text {
+    color: rgb(179, 179, 179);
+}
+
+.level {
+    color: rgb(196, 163, 54);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+}
+
+.topics-text {
+    font-size: 20px;
+}
+
+.topics-list {
+    font-weight: bold;
+}
