@@ -20,7 +20,7 @@ async function getMyProfile(req, res) {
         // get user and get only name & avatar
         const profile = await Profile.findOne({
             user: req.user.id,
-        }).populate('user', ['name', 'avatar']);
+        }).populate('user', ['name', 'avatar', 'level', 'city']);
         if (!profile) return res.status(400).json({ msg: 'There is no profile for this user :(' });
 
         res.json(profile);
@@ -100,7 +100,7 @@ async function createProfile(req, res) {
 
 async function getAllProfiles(req, res) {
     try {
-        const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+        const profiles = await Profile.find().populate('user', ['name', 'avatar', 'level', 'city']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
