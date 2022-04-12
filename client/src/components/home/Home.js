@@ -64,12 +64,11 @@ const Home = ({
                     ) : (
                         <>
                             {" "}
-                            <p style={{ textAlign: "center" }}>
-                                You have not setup a profile.
+                            <p className="text-center">
+                                You don't have a profile yet...
                                 <br />
-                                Please add your information
-                                <br />
-                                <Link to='/create-profile' className='btn btn-primary my-1'>
+                                Why don't you create it? :)
+                                <Link to='/create-profile' className="btn btn-primary mt-3">
                                     Create Profile
                                 </Link>
                             </p>{" "}
