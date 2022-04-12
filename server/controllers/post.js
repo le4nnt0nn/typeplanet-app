@@ -213,7 +213,7 @@ async function postComment(req, res) {
     if (!errors.isEmpty()) { return res.status(400).json({ errors: errors.array() }) }
 
     try {
-        // get user passsword and post by id
+        // get user no passsword and post by id
         const user = await User.findById(req.user.id).select('-password');
         const post = await Post.findById(req.params.id);
 
