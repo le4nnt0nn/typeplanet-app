@@ -21,7 +21,6 @@ import { Forecast } from '../home/weather/Forecast';
 const Home = ({
     getCurrentProfile,
     auth: { user },
-    profile: { profile }
 }) => {
 
     let [prof, setProf] = useState('');
@@ -30,13 +29,9 @@ const Home = ({
         const res = await axios.get('/api/profile');
         let itsMe = '';
         for(let i = 0; i < res.data.length; i++) {
-            console.log(res.data[i])
-            if (res.data[i].user._id == user._id) {
-                console.log('loool')
+            if (res.data[i].user._id === user._id) {
                 itsMe = res.data[i].user._id
                 return itsMe
-            } else {
-                console.log('no')
             }
         }
         return null
@@ -63,18 +58,18 @@ const Home = ({
                         </>
                     ) : (
                         <>
-                            {" "}
-                            <p className="text-center">
-                                You don't have a profile yet...
-                                <br />
-                                Why don't you create it? :)
-                                <Link to='/create-profile' className="btn btn-primary mt-3">
-                                    Create Profile
+                            <div className="no-profile text-center">
+                                <p>Hey dev! You don't have a profile yet...</p>
+                                <p>Why don't you <span className="text-uppercase">create it</span>? ✨</p>
+                                <button>
+                                <Link to="/create-profile" className="btn mt-1">
+                                   <strong>Create Profile</strong>
                                 </Link>
-                            </p>{" "}
+                                </button>
+                            </div>
                         </>
                     )}
-                    <div class="weather-wrapper container mt-5 text-center">
+                    <div class="weather-wrapper container mt-5 mb-5 text-center">
                         <Forecast />
                     </div>
                 </section>
@@ -87,11 +82,9 @@ Home.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     removeProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    profile: state.profile,
     auth: state.auth,
 });
 
