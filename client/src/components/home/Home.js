@@ -23,8 +23,10 @@ const Home = ({
     auth: { user },
 }) => {
 
+    // current profile
     let [prof, setProf] = useState('');
 
+    // checks if user have profile
     async function checkProfile() {
         const res = await axios.get('/api/profile');
         let itsMe = '';
@@ -37,6 +39,7 @@ const Home = ({
         return null
     }
 
+    // loads functions
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
