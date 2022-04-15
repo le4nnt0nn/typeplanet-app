@@ -39,11 +39,26 @@ const Home = ({
         return null
     }
 
+    // name for user
+    let [name, setName] = useState('');
+
+    // gets name for current user
+    async function getUsername() {
+        const res = await axios.get('/api/auth');
+        return res.data.name;
+    };
+
     // loads functions
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
 
+    // set name from current user
+    useEffect(() => {
+        getUsername().then(data => setName(data))
+    }, [name]);
+
+    // check this profile
     useEffect(() => {
         checkProfile().then(data => setProf(data))
     }, [prof]);
@@ -54,7 +69,7 @@ const Home = ({
                 <section class="gradient-custom">
                     <NavbarRoot />
                     <img class="astro astro-home center" src="astro2.png" alt="Astro" />
-                    <h3 class="user-text text-center"><strong>{user.name}</strong>'s spaceship</h3>
+                    <h3 class="user-text text-center"><strong>{name}</strong>'s spaceship</h3>
                     {prof !== null ? (
                         <>
 
