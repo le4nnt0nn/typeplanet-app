@@ -10,6 +10,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Home from './components/home/Home';
 import Profiles from './components/profile/Profiles';
+import Profile from './components/profile/Profile';
 import CreateProfile from './components/profile-form/CreateProfile';
 
 // redux stuff (for works with redux)
@@ -31,6 +32,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/home' element={<Home />} />
           <Route path='/devs' element={<Profiles />} />
+          <Route path='/devs/dev/:id' element={<Profile />} />
           <Route path='/create-profile' element={<CreateProfile />} />
         </Routes>
       </BrowserRouter>

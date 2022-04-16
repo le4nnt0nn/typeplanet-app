@@ -24,6 +24,7 @@ const ProfileCard = ({
                         {topics.join(' ')}
                     </div>
                 </div>
+                <Link to={`dev/${_id}`} className="btn btn-primary">View</Link>
             </div>
         </>
     )
