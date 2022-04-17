@@ -64,7 +64,7 @@ const Profile = ({
                         <div className="avatar-prof">
                             <img src={user.avatar} className="rounded-circle" />
                         </div>
-                        <div className="main-info text-center">
+                        <div className="text-center">
                             <span className="primary-prof-text">{user.name}</span>
                             <p className="description-text">{profile.profiles.description}</p>
                         </div>

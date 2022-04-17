@@ -100,14 +100,6 @@
   margin-top: 30px;
 }
 
-.main-info {
-  margin: 0 auto;
-  border-radius: 10px;
-  padding: 2px;
-  width: 60%;
-  background-color: #ffbcf6;
-}
-
 .primary-prof-text {
   color: white;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
@@ -130,6 +122,7 @@
   margin-top: -5px;
   font-weight: bold;
   font-size: 20px;
+  color: #ffbcf6;
 }
 
 .level-text {
@@ -173,10 +166,6 @@
 @media screen and (max-width: 600px) {
   .profile-card {
     width: 300px;
-  }
-
-  .main-info {
-    width: 80%;
   }
 }
 
