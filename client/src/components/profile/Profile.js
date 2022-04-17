@@ -56,28 +56,41 @@ const Profile = ({
                         Back
                     </Link>
                 </div>
-                <div className="top-wrap text-center">
-                    {auth.user._id === id && (
-                        <button className='edit btn'>Edit</button>
-                    )}
-                    <div className="avatar-prof">
-                        <img src={user.avatar} className="rounded-circle" />
+                <div className="profile-view-card">
+                    <div className="top-wrap text-center">
+                        {auth.user._id === id && (
+                            <button className='edit btn'>Edit</button>
+                        )}
+                        <div className="avatar-prof">
+                            <img src={user.avatar} className="rounded-circle" />
+                        </div>
+                        <span className="primary-prof-text">{user.name}</span>
+                        <p className="description-text">{profile.profiles.description}</p>
+                        <p className="level-text">Level: {user.level}</p>
+                        <BarLevel level={user.level} />
+                        <div className="city-text text-white">
+                            <FaBuilding />
+                            <p>{user.city}</p>
+                        </div>
+                        <div className="birth-wrapp">
+                            <FaBirthdayCake className="birth-text" />
+                            <p className="birth-text">{moment(user.birth).format('DD-MM-YYYY')}</p>
+                        </div>
+                        <div className="middle-wrap text-center">
+                            <div className="bio-wrap">
+                                <h4 className="secondary-prof-text">Bio</h4>
+                                <p className="bio-text">{profile.profiles.bio}</p>
+                            </div>
+                            <div className="topics-wrap">
+                                <h4 className="secondary-prof-text">Interested in</h4>
+                                <p className="topics-text">{profile.profiles.topics && profile.profiles.topics.join(' ')}</p>
+                            </div>
+                            <div className="posts-wrap">
+                                <h4 className="secondary-prof-text">Posts</h4>
+                                <p className="posts-text">{profile.profiles.posts}</p>
+                            </div>
+                        </div>
                     </div>
-                    <span className="primary-prof-text">{user.name}</span>
-                    <p className="description-text">{profile.profiles.description}</p>
-                    <p className="level-text">Level: {user.level}</p>
-                    <BarLevel level={user.level} />
-                    <div className="city-text text-white">
-                        <FaBuilding />
-                        <p>{user.city}</p>
-                    </div>
-                    <div className="birth-wrapp">
-                        <FaBirthdayCake className="birth-text" />
-                        <p className="birth-text">{moment(user.birth).format('DD-MM-YYYY')}</p>
-                    </div>
-                </div>
-                <div className="middle-wrap text-center">
-                    <h4>Topics: {profile.profiles.topics && profile.profiles.topics.join(' ')}</h4>
                 </div>
             </div>
         </>
