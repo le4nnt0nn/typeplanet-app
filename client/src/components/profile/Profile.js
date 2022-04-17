@@ -64,8 +64,10 @@ const Profile = ({
                         <div className="avatar-prof">
                             <img src={user.avatar} className="rounded-circle" />
                         </div>
-                        <span className="primary-prof-text">{user.name}</span>
-                        <p className="description-text">{profile.profiles.description}</p>
+                        <div className="main-info text-center">
+                            <span className="primary-prof-text">{user.name}</span>
+                            <p className="description-text">{profile.profiles.description}</p>
+                        </div>
                         <p className="level-text">Level: {user.level}</p>
                         <BarLevel level={user.level} />
                         <div className="city-text text-white">
