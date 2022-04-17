@@ -17,6 +17,10 @@
   font-weight: bold;
 }
 
+.avatar-profile-card {
+  border: rgb(68, 2, 77) 3px solid
+}
+
 .name {
   font-weight: bold;
 }
@@ -30,7 +34,22 @@
 }
 
 .topics-list {
+  margin-top: -10px;
+  margin-bottom: 10px;
   font-weight: bold;
+}
+
+.view-button {
+  margin: 10px;
+  background-image: url('../../../public/profile-ground.gif');
+  color: white;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.view-button:hover {
+  color: #e9c642;
 }
 
 /* Profile view styles */
@@ -42,7 +61,7 @@
 
 .profile-view-card {
   margin: 0 auto;
-  width: 1000px;
+  width: 80%;
 }
 
 .edit {
@@ -63,7 +82,8 @@
 }
 
 .top-wrap {
-  background-color: #7f30ac;
+  background-image: url('../../../public/profile-ground.gif');
+  background-size: cover;
   margin: 40px;
   border-radius: 8px;
   padding: 10px;
@@ -76,7 +96,16 @@
 }
 
 .avatar-prof img {
+  margin-bottom: 20px;
   margin-top: 30px;
+}
+
+.main-info {
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 2px;
+  width: 60%;
+  background-color: #ffbcf6;
 }
 
 .primary-prof-text {
@@ -104,12 +133,14 @@
 }
 
 .level-text {
+  margin-top: 20px;
   color: #e9c642;
   font-weight: bold;
   font-size: 20px;
 }
 
 .city-text {
+  font-size: 20px;
   margin-top: 20px;
 }
 
@@ -135,3 +166,18 @@
   font-weight: bold;
   font-size: 30px;
 }
+
+
+/* responsive */
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    width: 300px;
+  }
+
+  .main-info {
+    width: 80%;
+  }
+}
+
+
