@@ -3,7 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../actions/profile';
 import { Link, useParams } from 'react-router-dom';
+
 import axios from 'axios';
+
+import moment from 'moment';
+
+// icons
+import { FaBirthdayCake, FaBuilding } from 'react-icons/fa';
+
+import BarLevel from '../bar-level/BarLevel';
+
+import './style.css';
 
 const Profile = ({
     getProfileById,
@@ -40,22 +50,35 @@ const Profile = ({
 
     return (
         <>
-            <Link to='/devs' className='btn btn-light'>
-                Back
-            </Link>
-            {auth.user._id === id && (
-                <h3>Edit</h3>
-            )}
-            <div className="text-center">
-                <img src={user.avatar} className="rounded-circle" />
-                <br />
-                {user.name}
-                <br />
-                {profile.profiles.description}
-                <br />
-                {profile.profiles.bio}
-                <br />
-                <h4>Topics: {profile.profiles.topics && profile.profiles.topics.join(' ')}</h4>
+            <div>
+                <div className="back-button">
+                    <Link to='/devs' className='back btn'>
+                        Back
+                    </Link>
+                </div>
+                <div className="top-wrap text-center">
+                    {auth.user._id === id && (
+                        <button className='edit btn'>Edit</button>
+                    )}
+                    <div className="avatar-prof">
+                        <img src={user.avatar} className="rounded-circle" />
+                    </div>
+                    <span className="primary-prof-text">{user.name}</span>
+                    <p className="description-text">{profile.profiles.description}</p>
+                    <p className="level-text">Level: {user.level}</p>
+                    <BarLevel level={user.level} />
+                    <div className="city-text text-white">
+                        <FaBuilding />
+                        <p>{user.city}</p>
+                    </div>
+                    <div className="birth-wrapp">
+                        <FaBirthdayCake className="birth-text" />
+                        <p className="birth-text">{moment(user.birth).format('DD-MM-YYYY')}</p>
+                    </div>
+                </div>
+                <div className="middle-wrap text-center">
+                    <h4>Topics: {profile.profiles.topics && profile.profiles.topics.join(' ')}</h4>
+                </div>
             </div>
         </>
     )

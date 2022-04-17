@@ -1,35 +1,110 @@
-
 /* ProfileCard styles */
 
 .profile-card {
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 20px;
-    width: 500px;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 20px;
+  width: 500px;
 }
 
 .secondary-text {
-    color: rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
 }
 
 .level {
-    color: rgb(196, 163, 54);
-    font-size: 23px;
-    font-weight: bold;
+  color: rgb(196, 163, 54);
+  font-size: 23px;
+  font-weight: bold;
 }
 
 .name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .description {
-    font-style: italic;
+  font-style: italic;
 }
 
 .topics-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .topics-list {
-    font-weight: bold;
+  font-weight: bold;
+}
+
+/* Profile view styles */
+
+.back {
+  background-color: white;
+  margin: 20px;
+}
+
+.edit {
+  margin: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  background-color: #4e0166;
+}
+
+.edit:hover {
+  color: white;
+  background-color: #1e0127;
+}
+
+.back:hover {
+  background-color: rgb(208, 173, 255);
+}
+
+.top-wrap {
+  background-color: #7f30ac;
+  margin: 40px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.middle-wrap {
+  background-color: white;
+  margin: 40px;
+  border-radius: 8px;
+}
+
+.avatar-prof img {
+  margin-top: 30px;
+}
+
+.primary-prof-text {
+  color: white;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.avatar-prof img {
+    border: rgb(68, 2, 77) 3px solid
+}
+
+.secondary-prof-text {
+}
+
+.description-text {
+  margin-top: -5px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.level-text {
+  color: #e9c642;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.city-text {
+  margin-top: 20px;
+}
+
+.birth-text {
+  color: #ffbcf6;
+  font-size: 20px;
 }
