@@ -7,7 +7,7 @@ import { createProfile } from '../../actions/profile';
 import './style.css';
 
 // toastify
-import { info } from '../../utils/toasts';
+import { info, success } from '../../utils/toasts';
 import { ToastContainer } from 'react-toastify';
 
 const CreateProfile = ({ createProfile }) => {
@@ -52,6 +52,7 @@ const CreateProfile = ({ createProfile }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         createProfile(formData);
+        success('Your profile is now created!');
     }
 
     return (
@@ -111,7 +112,7 @@ const CreateProfile = ({ createProfile }) => {
                                         (<strong>REACT, ANGULAR, JS, NODE, JAVA, C#</strong>)
                                     </p>
                                 </div>
-                                <input type='submit' className='btn btn-outline-light btn-lg px-5 custom-primary-button' />
+                                <button className='btn btn-outline-light btn-lg px-5 custom-primary-button'>Submit</button>
                                 <ToastContainer />
                             </form>
                         </div>
