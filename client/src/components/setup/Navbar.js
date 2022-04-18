@@ -14,6 +14,8 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     // user Id
     let [id, setId] = useState('');
 
+    let [visibilty, setVisibility] = useState('');
+
     // gets id for current user
     async function getCurrentUserId() {
         const res = await axios.get('/api/auth');
@@ -24,6 +26,22 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     useEffect(() => {
         getCurrentUserId().then(data => setId(data))
     }, [id]);
+
+    // checks if this user have profile, if not, hidde Me navbar button
+    async function checkProfile() {
+        const res = await axios.get('api/profile');
+        for (let i = 0; i < res.data.length; i++) {
+            if (id === res.data[i].user._id) {
+                return '';
+            }
+        }
+        return 'hidden';
+    };
+
+    // set visibility for Me button
+    useEffect(() => {
+        checkProfile().then(data => setVisibility(data))
+    }, [visibilty]);
 
     const links = (
         <Nav className="ms-auto">
@@ -37,10 +55,14 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 <Link to='/devs' className='link'>AstroDevs</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to={`me/${id}`} className='link'>
-                    {" "}
-                    <span className='hide-sm'>Me</span>
-                </Link>
+                {visibilty !== 'hidden' ? (
+                    <Link to={`/me/${id}`} className='link'>
+                        {" "}
+                        <span className='hide-sm'>Me</span>
+                    </Link>
+                ) : (
+                    <span className={`hide-sm ${visibilty}`}>Me</span>
+                )}
             </Nav.Link>
             <Nav.Link>
                 <Link to='/login' className='link' onClick={logout}>
