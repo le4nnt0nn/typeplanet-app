@@ -59,7 +59,7 @@ const Profile = ({
                 <div className="profile-view-card">
                     <div className="top-wrap text-center">
                         {auth.user._id === id && (
-                            <button className='edit btn'>Edit</button>
+                            <Link to='/edit-profile' className='edit btn'>Edit</Link>
                         )}
                         <div className="avatar-prof">
                             <img src={user.avatar} className="rounded-circle" />
