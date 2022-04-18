@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Nav, Navbar } from "react-bootstrap";
 import './style.css';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import axios from 'axios';
 
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NavbarRoot = ({ auth: { isAuth }, logout }) => {
+
+    // user Id
+    let [id, setId] = useState('');
+
+    // gets id for current user
+    async function getCurrentUserId() {
+        const res = await axios.get('/api/auth');
+        return res.data._id;
+    };
+
+    // set name from current user
+    useEffect(() => {
+        getCurrentUserId().then(data => setId(data))
+    }, [id]);
 
     const links = (
         <Nav className="ms-auto">
@@ -22,7 +37,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 <Link to='/devs' className='link'>AstroDevs</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to='/me' className='link'>
+                <Link to={`me/${id}`} className='link'>
                     {" "}
                     <span className='hide-sm'>Me</span>
                 </Link>
