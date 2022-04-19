@@ -14,7 +14,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     // user Id
     let [id, setId] = useState('');
 
-    let [visibilty, setVisibility] = useState('');
+    let [visibility, setVisibility] = useState('');
 
     // gets id for current user
     async function getCurrentUserId() {
@@ -41,7 +41,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     // set visibility for Me button
     useEffect(() => {
         checkProfile().then(data => setVisibility(data))
-    }, [visibilty]);
+    }, [visibility]);
 
     const links = (
         <Nav className="ms-auto">
@@ -55,13 +55,13 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 <Link to='/devs' className='link'>AstroDevs</Link>
             </Nav.Link>
             <Nav.Link>
-                {visibilty !== 'hidden' ? (
+                {visibility !== 'hidden' ? (
                     <Link to={`/me/${id}`} className='link'>
                         {" "}
                         <span className='hide-sm'>Me</span>
                     </Link>
                 ) : (
-                    <span className={`hide-sm ${visibilty}`}>Me</span>
+                    <span className={`hide-sm ${visibility}`}>Me</span>
                 )}
             </Nav.Link>
             <Nav.Link>
