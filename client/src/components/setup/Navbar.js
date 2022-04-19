@@ -61,7 +61,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                         <span className='hide-sm'>Me</span>
                     </Link>
                 ) : (
-                    <span className={`hide-sm ${visibility}`}>Me</span>
+                    <span className={`me-noprofile hide-sm ${visibility}`}>Me</span>
                 )}
             </Nav.Link>
             <Nav.Link>
