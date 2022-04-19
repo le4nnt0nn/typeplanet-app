@@ -1,10 +1,10 @@
-// tostify
+// toastify
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const info = (text) => toast(`👩‍🚀 ${text}`, {
     position: "bottom-right",
-    autoClose: 3000,
+    autoClose: 5000,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: false,

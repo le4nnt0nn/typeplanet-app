@@ -16,6 +16,7 @@ const ProfileSchema = new mongoose.Schema({
     topics: {
         type: [String],
         required: true,
+        default: ["REACT", "ANGULAR", "JS", "NODE", "JAVA", "C#"]
     },
     posts: {
         type: Number,

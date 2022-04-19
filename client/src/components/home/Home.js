@@ -4,7 +4,7 @@ import { BrowserRouter, Link, Routes } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
-import { getCurrentProfile, removeProfile } from "../../actions/profile";
+import { getCurrentProfile } from "../../actions/profile";
 
 import './style.css';
 
@@ -20,25 +20,48 @@ import { Forecast } from '../home/weather/Forecast';
 
 const Home = ({
     getCurrentProfile,
-    removeProfile,
-    /**auth: { user },
-    profile: { profile } */
+    auth: { user },
 }) => {
-    useEffect(() => {
-        getCurrentProfile();
-    }, [getCurrentProfile]);
 
-    // city
+    // current profile
+    let [prof, setProf] = useState('');
+
+    // checks if user have profile
+    async function checkProfile() {
+        const res = await axios.get('/api/profile');
+        let itsMe = '';
+        for(let i = 0; i < res.data.length; i++) {
+            if (res.data[i].user._id === user._id) {
+                itsMe = res.data[i].user._id
+                return itsMe
+            }
+        }
+        return null
+    }
+
+    // name for user
     let [name, setName] = useState('');
 
+    // gets name for current user
     async function getUsername() {
         const res = await axios.get('/api/auth');
         return res.data.name;
     };
+
+    // loads functions
+    useEffect(() => {
+        getCurrentProfile();
+    }, [getCurrentProfile]);
+
     // set name from current user
     useEffect(() => {
         getUsername().then(data => setName(data))
     }, [name]);
+
+    // check this profile
+    useEffect(() => {
+        checkProfile().then(data => setProf(data))
+    }, [prof]);
 
     return (
         <>
@@ -47,7 +70,24 @@ const Home = ({
                     <NavbarRoot />
                     <img class="astro astro-home center" src="astro2.png" alt="Astro" />
                     <h3 class="user-text text-center"><strong>{name}</strong>'s spaceship</h3>
-                    <div class="weather-wrapper container mt-5 text-center">
+                    {prof !== null ? (
+                        <>
+
+                        </>
+                    ) : (
+                        <>
+                            <div className="no-profile text-center">
+                                <p>Hey dev! You don't have a profile yet...</p>
+                                <p>Why don't you <span className="text-uppercase">create it</span>? ✨</p>
+                                <button>
+                                <Link to="/create-profile" className="btn mt-1">
+                                   <strong>Create Profile</strong>
+                                </Link>
+                                </button>
+                            </div>
+                        </>
+                    )}
+                    <div class="weather-wrapper container mt-5 mb-5 text-center">
                         <Forecast />
                     </div>
                 </section>
@@ -60,12 +100,10 @@ Home.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     removeProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    profile: state.profile,
-    auth: state.auth
+    auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getCurrentProfile, removeProfile })(Home);
+export default connect(mapStateToProps, { getCurrentProfile })(Home);

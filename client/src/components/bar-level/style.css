@@ -1,0 +1,18 @@
+.progress-bar {
+    background-color: #e9c642;
+}
+
+.progress {
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(255, 94, 220);
+    width: 300px;
+}
+
+/* responsive */
+
+@media screen and (max-width: 600px) {
+    .progress {
+        width: 200px;
+    }
+}

@@ -87,6 +87,10 @@ body {
   text-align: center;
 }
 
+.me-noprofile {
+  margin-left: 20px;
+}
+
 h3 {
   font-style: normal;
   font-weight: normal;

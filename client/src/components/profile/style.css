@@ -1,35 +1,172 @@
-
 /* ProfileCard styles */
 
 .profile-card {
-    cursor: pointer;
-    margin: 0 auto;
-    padding: 20px;
-    width: 500px;
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 20px;
+  width: 500px;
 }
 
 .secondary-text {
-    color: rgb(179, 179, 179);
+  color: rgb(179, 179, 179);
 }
 
 .level {
-    color: rgb(196, 163, 54);
-    font-size: 23px;
-    font-weight: bold;
+  color: rgb(196, 163, 54);
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.avatar-profile-card {
+  border: rgb(68, 2, 77) 5px solid
 }
 
 .name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .description {
-    font-style: italic;
+  font-style: italic;
 }
 
 .topics-text {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .topics-list {
-    font-weight: bold;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
+
+.view-button {
+  margin: 10px;
+  background-image: url('../../../public/profile-ground.gif');
+  color: white;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.view-button:hover {
+  color: #e9c642;
+}
+
+/* Profile view styles */
+
+.back {
+  background-color: white;
+  margin: 20px;
+}
+
+.profile-view-card {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.edit {
+  margin: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  background-color: #4e0166;
+}
+
+.edit:hover {
+  color: white;
+  background-color: #1e0127;
+}
+
+.back:hover {
+  background-color: rgb(208, 173, 255);
+}
+
+.top-wrap {
+  background-image: url('../../../public/profile-ground.gif');
+  background-size: cover;
+  margin: 40px;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.middle-wrap {
+  padding: 10px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.avatar-prof img {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.primary-prof-text {
+  color: white;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.avatar-prof img {
+    border: rgb(68, 2, 77) 5px solid
+}
+
+.secondary-prof-text {
+  padding: 20px;
+  color: #7f30ac;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.description-text {
+  margin-top: -5px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffbcf6;
+}
+
+.level-text {
+  margin-top: 20px;
+  color: #e9c642;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.city-text {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.birth-text {
+  color: #ffbcf6;
+  font-size: 20px;
+}
+
+.bio-text {
+  margin-top: -30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.topics-text {
+  margin-top: -20px;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.posts-text {
+  margin-top: -30px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+/* responsive */
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    width: 300px;
+  }
+}
+
+

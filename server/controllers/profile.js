@@ -120,7 +120,7 @@ async function getProfileByUserId(req, res) {
         // get profile and populate by name & avatar from user
         const profile = await Profile.findOne({
             user: req.params.user_id,
-        }).populate('user', ['name', 'avatar']);
+        }).populate('user', ['name', 'avatar', 'level', 'city']);
 
         // if profile not found, send error with user id
         if (!profile)
