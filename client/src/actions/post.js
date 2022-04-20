@@ -17,7 +17,7 @@ import { success, error } from '../utils/toasts';
 * @desc Get all posts using /api/posts 
 */
 
-const getAllPosts = () => async (dispatch) => {
+export const getAllPosts = () => async (dispatch) => {
     try {
         // get response from request
         const res = await axios.get('/api/posts');
@@ -42,7 +42,7 @@ const getAllPosts = () => async (dispatch) => {
 * @desc Get post
 */
 
-const getPost = (id) => async (dispatch) => {
+export const getPost = (id) => async (dispatch) => {
     try {
         // get post from response
         const res = await axios.get(`/api/posts/${id}`);
@@ -67,7 +67,7 @@ const getPost = (id) => async (dispatch) => {
 * @desc Put like to post
 */
 
-const addLike = (id) => async (dispatch) => {
+export const addLike = (id) => async (dispatch) => {
     try {
         // put post wich will be liked
         const res = axios.put(`/api/posts/like/${id}`);
@@ -94,7 +94,7 @@ const addLike = (id) => async (dispatch) => {
 * @desc Remove like from post
 */
 
-const removeLike = (id) => async (dispatch) => {
+export const removeLike = (id) => async (dispatch) => {
     try {
         // put post wich will be unliked
         const res = await axios.put(`/api/posts/unlike/${id}`);
@@ -120,7 +120,7 @@ const removeLike = (id) => async (dispatch) => {
 * @desc Delete post
 */
 
-const deletePost = (id) => async (dispatch) => {
+export const deletePost = (id) => async (dispatch) => {
     try {
         // remove selected post 
         await axios.delete(`/api/posts/${id}`);
@@ -147,7 +147,7 @@ const deletePost = (id) => async (dispatch) => {
 * @desc Create post
 */
 
-const addNewPost = (formData) => async (dispatch) => {
+export const addNewPost = (formData) => async (dispatch) => {
 
     // config for axios request
     const config = {
@@ -182,7 +182,7 @@ const addNewPost = (formData) => async (dispatch) => {
 * @desc Add comment to post
 */
 
-const addComment = (postId, formData) => async (dispatch) => {
+export const addComment = (postId, formData) => async (dispatch) => {
 
     // config for axios request
     const config = {
@@ -217,7 +217,7 @@ const addComment = (postId, formData) => async (dispatch) => {
 * @desc Remove comment for post
 */
 
-const removeComment = (postId, commentId) => async (dispatch) => {
+export const removeComment = (postId, commentId) => async (dispatch) => {
     try {
         // remvoe post comment with received formData
         const res = await axios.post(`/api/posts/comments/${postId}/${commentId}`);
@@ -239,16 +239,3 @@ const removeComment = (postId, commentId) => async (dispatch) => {
         error('Something went wrong 👽');
     }
 };
-
-module.exports = {
-    getAllPosts,
-    getPost,
-    addLike,
-    removeLike,
-    deletePost,
-    addNewPost,
-    addComment,
-    removeComment
-
-
-}
