@@ -1,0 +1,46 @@
+/* PostCard styles */
+
+.post-card {
+  cursor: pointer;
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.left-side h4 {
+    color: rgb(78, 78, 78);
+    font-weight: bold;
+    margin-left: 3px;
+    margin-top: 5px;
+}
+
+.center-side .post-content {
+    color: rgb(118, 9, 182);
+    font-size: 20px;
+}
+
+.center-side .date {
+    margin-top: -10px;
+    font-size: 15px;
+}
+
+.right-side {
+}
+
+.active {
+    color: red;
+}
+
+.someClass {
+    color: green;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  text-align: center;
+}
