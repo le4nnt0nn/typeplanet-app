@@ -13,6 +13,7 @@ import Profiles from './components/profile/Profiles';
 import Profile from './components/profile/Profile';
 import CreateProfile from './components/profile-form/CreateProfile';
 import EditProfile from './components/profile-form/EditProfile';
+import Posts from './components/post/Posts';
 
 // redux stuff (for works with redux)
 import { Provider } from 'react-redux';
@@ -37,6 +38,7 @@ const App = () => {
           <Route path='/me/:id' element={<Profile />} />
           <Route path='/create-profile' element={<CreateProfile />} />
           <Route path='/edit-profile' element={<EditProfile />} />
+          <Route path='/posts' element={<Posts />} />
         </Routes>
       </BrowserRouter>
     </Provider>
