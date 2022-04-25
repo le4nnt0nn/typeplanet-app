@@ -1,46 +1,85 @@
 /* PostCard styles */
 
 .post-card {
-  cursor: pointer;
   margin: 0 auto;
   padding: 20px;
   width: 80%;
 }
 
-.left-side h4 {
-    color: rgb(78, 78, 78);
-    font-weight: bold;
-    margin-left: 3px;
-    margin-top: 5px;
-}
-
-.center-side .post-content {
-    color: rgb(118, 9, 182);
-    font-size: 20px;
-}
-
-.center-side .date {
-    margin-top: -10px;
-    font-size: 15px;
-}
-
-.right-side {
-}
-
-.active {
-    color: red;
-}
-
-.someClass {
-    color: green;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto;
+.social-side {
   padding: 10px;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: rgb(255, 204, 252);
+  width: 100%;
 }
-.grid-item {
-  padding: 20px;
-  text-align: center;
+
+.categories {
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(228, 118, 219);
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.post-content {
+  color: rgb(137, 0, 179);
+  font-size: 24px;
+}
+
+.actions div {
+  margin-left: 20px;
+}
+
+.like {
+  font-size: 30px;
+  color: rgb(109, 109, 109);
+}
+
+.like-btn {
+  font-size: 30px;
+}
+
+.nolike {
+  margin-top: -9px;
+  font-size: 30px;
+  color: rgb(228, 109, 109);
+}
+
+.nolike-btn {
+  font-size: 40px;
+}
+
+.comment {
+  margin-top: -9px;
+  font-size: 30px;
+  color: rgb(68, 1, 107);
+}
+
+.comment-btn {
+  font-size: 40px;
+}
+
+.user-post img {
+  width: 100px;
+  border: #e9c642 solid;
+}
+
+.user-post h4 {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #e9c642;
+  text-shadow: -1px 0 black, 0 1px black, 2px 0 black, 0 -1px black;
+}
+
+.date {
+  margin-bottom: -10px;
+}
+
+/* responsive */
+@media screen and (max-width: 600px) {
+  .post-content {
+    font-size: 20px;
+  }
 }
