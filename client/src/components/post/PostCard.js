@@ -6,6 +6,9 @@ import { addLike, removeLike, deletePost } from '../../actions/post';
 
 import moment from 'moment';
 
+// icons
+import { FaMoon, FaCloudMoon, FaUserAstronaut } from 'react-icons/fa';
+
 import './style.css';
 
 const PostCard = ({
@@ -16,25 +19,34 @@ const PostCard = ({
     auth,
     showActions,
 }) => {
-    console.log(categories.includes('Question') ? 'active' : '')
     return (
         <>
-            <div className="post-card bg-white rounded mt-5 mb-5">
-                <div className="right-side float-end">
-                    <div className={`someClass ${categories.includes('Question') ? 'active' : ''} ${categories.includes('Angular') ? 'someClass' : 'otherClass'}`}>
+            <div className="post-card card bg-white rounded mt-5 mb-5">
+                <div className="content text-center">
+                    <div className="categories text-center">
                         {categories.join(' ')}
                     </div>
+                    <p className="post-content mt-5 mb-5">{text}</p>
                 </div>
-                <div className="left-side float-start">
-                    <Link to={`/devs/dev/${user}`} style={{ textDecoration: 'none' }}>
-                        <img className="rounded-circle w-50" src={avatar} alt='' />
-                        <h4>{name}</h4>
-                    </Link>
+                <div className="actions mt-2 text-center justify-center mx-auto d-flex">
+                    <div className="like">
+                        <p>{likes.length} <span className="like-btn" role="button"><FaMoon /></span></p>
+                    </div>
+                    <div className="nolike">
+                        <span className="nolike-btn" role="button"><FaCloudMoon /></span>
+                    </div>
+                    <div className="comment">
+                        <p>{comments.length}<span className="comment-btn" role="button"><FaUserAstronaut /></span></p>
+                    </div>
                 </div>
-                <div className="center-side">
-                    <p className="post-content">{text}</p>
-                    <p className="date">{moment(date).format('MM/DD/YYYY')}</p>
-                    <p>{likes.length}</p>
+                <div className="social-side">
+                    <div className="user-post text-center">
+                        <Link to={`/devs/dev/${user}`} style={{ textDecoration: 'none' }}>
+                            <img className="rounded-circle" src={avatar} alt='' />
+                            <h4>{name}</h4>
+                        </Link>
+                    </div>
+                    <p className="date text-center">{moment(date).format('MM/DD/YYYY')}</p>
                 </div>
             </div>
         </>
