@@ -37,6 +37,14 @@ async function createPost(req, res) {
 
         // categories MUST be the choosen in Post Model
         const post = await newPost.save();
+        // add post to posts counter
+        user.update({ posts: user.posts + 1 }, function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(result);
+            }
+        });
         // if user reach the max level, no level up
         if (user.level < 30) {
             // user gain level creating post
@@ -68,7 +76,7 @@ async function createPost(req, res) {
 async function getAllPosts(req, res) {
     try {
         // get all posts sorted by the most recent first
-        const posts = await Post.find().sort({ data: -1 });
+        const posts = await Post.find().sort({ date: -1 });
         res.json(posts);
     } catch (err) {
         // 500 -> Server Error
@@ -116,12 +124,24 @@ async function deletePost(req, res) {
     try {
         const post = await Post.findById(req.params.id);
 
+        // store user in const (find by id)
+        let user = await User.findById(req.user.id).select('-password');
+
         if (!post) return res.status(404).json({ msg: 'This post not exists :(' });
 
         // if the user id stored in the post is not equals to the user id, then error 401 -> Unauthorized
         if (post.user.toString() !== req.user.id) return res.status(401).json({ msg: 'User not authorized to complete this action' });
 
         await post.remove();
+
+        // quit post for posts counter
+        user.update({ posts: user.posts - 1 }, function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(result);
+            }
+        });
 
         res.json({ msg: 'Post hass been removed :)' });
 
