@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    posts: {
+        type: Number,
+        default: 0
+    },
     following: [
         {
             user: {

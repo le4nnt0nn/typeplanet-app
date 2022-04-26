@@ -18,10 +18,6 @@ const ProfileSchema = new mongoose.Schema({
         required: true,
         default: ["REACT", "ANGULAR", "JS", "NODE", "JAVA", "C#"]
     },
-    posts: {
-        type: Number,
-        default: 0
-    },
     githubuser: {
         type: String
     },
