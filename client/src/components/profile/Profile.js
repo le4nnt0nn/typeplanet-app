@@ -89,7 +89,7 @@ const Profile = ({
                             </div>
                             <div className="posts-wrap">
                                 <h4 className="secondary-prof-text">Posts</h4>
-                                <p className="posts-text">{profile.profiles.posts}</p>
+                                <p className="posts-text">{user.posts}</p>
                             </div>
                         </div>
                     </div>
