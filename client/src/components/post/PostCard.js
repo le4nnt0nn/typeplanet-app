@@ -39,6 +39,19 @@ const PostCard = ({
                         <p>{comments.length}<span className="comment-btn" role="button"><FaUserAstronaut /></span></p>
                     </div>
                 </div>
+                {showActions && (
+                    <>
+                        {!auth.loading && user === auth.user._id && (
+                            <button
+                                onClick={(e) => deletePost(_id)}
+                                type='button'
+                                className='btn btn-danger'
+                            >
+                                Remove
+                            </button>
+                        )}
+                    </>
+                )}
                 <div className="social-side">
                     <div className="user-post text-center">
                         <Link to={`/devs/dev/${user}`} style={{ textDecoration: 'none' }}>
