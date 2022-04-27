@@ -68,7 +68,7 @@ const Profile = ({
                             <span className="primary-prof-text">{user.name}</span>
                             <p className="description-text">{profile.profiles.description}</p>
                         </div>
-                        <p className="level-text">Level: {user.level}</p>
+                        <p className="level-text">Level: {Math.round(user.level)}</p>
                         <BarLevel level={user.level} />
                         <div className="city-text text-white">
                             <FaBuilding />
