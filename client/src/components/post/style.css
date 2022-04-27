@@ -79,6 +79,7 @@
 
 /* PostMaker styles */
 textarea {
+  width: 60%;
   resize: none;
   border-radius: 10px;
   font-size: 20px;
@@ -88,9 +89,144 @@ textarea {
   font-size: 23px;
 }
 
+.categories-buttons button {
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.reset-btn {
+  font-size: 25px;
+}
+
+#question-btn {
+  font-weight: bold;
+  background-color: rgb(104, 104, 104);
+  color: #89c9f3;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#question-btn:hover {
+  background-color: rgb(170, 170, 170);
+  color: #ececec;
+}
+
+#question-btn:disabled {
+  opacity: 0.5;
+}
+
+#content-btn {
+  font-weight: bold;
+  background-color: rgb(104, 104, 104);
+  color: #89f3a9;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#content-btn:hover {
+  background-color: rgb(170, 170, 170);
+  color: #ececec;
+}
+
+#content-btn:disabled {
+  opacity: 0.5;
+}
+
+#react-btn {
+  font-weight: bold;
+  background-color: rgb(64, 66, 233);
+  color: #77cce4;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#react-btn:hover {
+  background-color: rgb(187, 239, 255);
+  color: #ececec;
+}
+
+#react-btn:disabled {
+  opacity: 0.5;
+}
+
+#angular-btn {
+  font-weight: bold;
+  background-color: rgb(233, 89, 64);
+  color: #f58c84;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#angular-btn:hover {
+  background-color: rgb(255, 208, 187);
+  color: #ececec;
+}
+
+#angular-btn:disabled {
+  opacity: 0.5;
+}
+
+#js-btn {
+  font-weight: bold;
+  background-color: rgb(235, 226, 99);
+  color: #f5f4ae;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#js-btn:hover {
+  background-color: rgb(247, 240, 181);
+  color: #ececec;
+}
+
+#js-btn:disabled {
+  opacity: 0.5;
+}
+
+#java-btn {
+  font-weight: bold;
+  background-color: rgb(158, 112, 100);
+  color: #c0b5b5;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#java-btn:hover {
+  background-color: rgb(202, 163, 151);
+  color: #ececec;
+}
+
+#java-btn:disabled {
+  opacity: 0.5;
+}
+
+#c-btn {
+  font-weight: bold;
+  background-color: rgb(141, 243, 116);
+  color: #c8e9a3;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+}
+
+#c-btn:hover {
+  background-color: rgb(222, 243, 205);
+  color: #ececec;
+}
+
+#c-btn:disabled {
+  opacity: 0.5;
+}
+
+.reset-btn {
+  background-color: rgb(133, 30, 30);
+  color: rgb(250, 166, 166);
+}
+
 /* responsive */
 @media screen and (max-width: 600px) {
+  textarea {
+    width: 400px;
+  }
   .post-content {
+    font-size: 20px;
+  }
+  .categories-buttons button {
+    font-size: 18px;
+  }
+  .reset-btn {
     font-size: 20px;
   }
 }
