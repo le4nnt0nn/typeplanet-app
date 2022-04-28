@@ -36,7 +36,7 @@ const PostMaker = ({ addNewPost }) => {
                         name="text"
                         cols="60"
                         rows="5"
-                        placeholder="My mind if from another planet..."
+                        placeholder="My mind is from another planet..."
                     >
                     </textarea>
                     <br />
