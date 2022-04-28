@@ -7,7 +7,7 @@ import { addLike, removeLike, deletePost } from '../../actions/post';
 import moment from 'moment';
 
 // icons
-import { FaMoon, FaCloudMoon, FaUserAstronaut } from 'react-icons/fa';
+import { FaMoon, FaCloudMoon, FaUserAstronaut, FaRegTimesCircle } from 'react-icons/fa';
 
 import './style.css';
 
@@ -19,39 +19,53 @@ const PostCard = ({
     auth,
     showActions,
 }) => {
+    console.log(likes)
     return (
         <>
             <div className="post-card card bg-white rounded mt-5 mb-5">
                 <div className="content text-center">
-                    <div className="categories text-center">
+                    <div className="categories mx-auto text-center">
                         {categories.join(' ')}
                     </div>
                     <p className="post-content mt-5 mb-5">{text}</p>
                 </div>
                 <div className="actions mt-2 text-center justify-center mx-auto d-flex">
-                    <div className="like">
-                        <p>{likes.length} <span className="like-btn" role="button"><FaMoon /></span></p>
-                    </div>
-                    <div className="nolike">
-                        <span className="nolike-btn" role="button"><FaCloudMoon /></span>
-                    </div>
-                    <div className="comment">
-                        <p>{comments.length}<span className="comment-btn" role="button"><FaUserAstronaut /></span></p>
-                    </div>
-                </div>
-                {showActions && (
-                    <>
-                        {!auth.loading && user === auth.user._id && (
-                            <button
-                                onClick={(e) => deletePost(_id)}
-                                type='button'
-                                className='btn btn-danger'
+                    {showActions && (
+                        <>
+                            {likes && likes.length > 0 ? (
+                                <span
+                                    className="like like-btn" role="button"
+                                    onClick={(e) => addLike(_id)}
+                                >
+                                    <p><span>{likes.length}</span> <FaMoon /></p>
+                                </span>
+                            ) : (
+                                <span
+                                    className="like like-btn" role="button"
+                                    onClick={(e) => addLike(_id)}
+                                >
+                                    <p><FaMoon /></p>
+                                </span>
+                            )}
+                            <span 
+                            className="nolike nolike-btn" role="button"
+                            onClick={(e) => removeLike(_id)}
                             >
-                                Remove
-                            </button>
-                        )}
-                    </>
-                )}
+                                <FaCloudMoon />
+                            </span>
+
+                            {!auth.loading && user === auth.user._id && (
+                                <button
+                                    onClick={(e) => deletePost(_id)}
+                                    type="button"
+                                    className="remove-btn text-center mb-3"
+                                >
+                                    <FaRegTimesCircle />
+                                </button>
+                            )}
+                        </>
+                    )}
+                </div>
                 <div className="social-side">
                     <div className="user-post text-center">
                         <Link to={`/devs/dev/${user}`} style={{ textDecoration: 'none' }}>
@@ -59,7 +73,7 @@ const PostCard = ({
                             <h4>{name}</h4>
                         </Link>
                     </div>
-                    <p className="date text-center">{moment(date).format('MM/DD/YYYY')}</p>
+                    <p className="date text-center">{moment(date).format('DD/MM/YYYY')}</p>
                 </div>
             </div>
         </>
