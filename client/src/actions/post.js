@@ -70,19 +70,19 @@ export const getPost = (id) => async (dispatch) => {
 export const addLike = (id) => async (dispatch) => {
     try {
         // put post wich will be liked
-        const res = axios.put(`/api/posts/like/${id}`);
+        const res = await axios.put(`/api/posts/like/${id}`);
 
         dispatch({
             type: UPDATE_LIKES,
             payload: { id, likes: res.data },
         });
-        success('Liked! ☄️');
+        //success('Liked! ☄️');
     } catch (err) {
         dispatch({
             type: POST_ERROR,
             payload: {
                 // text & status from err response
-                msg: err.response.statusText + 'UPDATE_LIKES Error :( -> (addLike)',
+                msg: err.response.statusText + 'UPDATE_LIKES Error :( -> (addLike) ' + (id && id),
                 status: err.response.status,
             }
         });
