@@ -32,24 +32,17 @@ const PostCard = ({
                 <div className="actions mt-2 text-center justify-center mx-auto d-flex">
                     {showActions && (
                         <>
-                            {likes && likes.length > 0 ? (
-                                <span
-                                    className="like like-btn" role="button"
-                                    onClick={(e) => addLike(_id)}
-                                >
-                                    <p><span>{likes.length}</span> <FaMoon /></p>
-                                </span>
-                            ) : (
-                                <span
-                                    className="like like-btn" role="button"
-                                    onClick={(e) => addLike(_id)}
-                                >
-                                    <p><FaMoon /></p>
-                                </span>
-                            )}
-                            <span 
-                            className="nolike nolike-btn" role="button"
-                            onClick={(e) => removeLike(_id)}
+
+                            <span
+                                className="like like-btn" role="button"
+                                onClick={(e) => addLike(_id)}
+                            >
+                                <p>{likes && likes.length > 0 && <span>{likes.length}</span>} <FaMoon /></p>
+                            </span>
+
+                            <span
+                                className="nolike nolike-btn" role="button"
+                                onClick={(e) => removeLike(_id)}
                             >
                                 <FaCloudMoon />
                             </span>
