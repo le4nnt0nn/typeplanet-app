@@ -19,7 +19,7 @@ const PostCard = ({
     auth,
     showActions,
 }) => {
-    console.log(likes)
+    console.log(comments)
     return (
         <>
             <div className="post-card card bg-white rounded mt-5 mb-5">
@@ -46,6 +46,15 @@ const PostCard = ({
                             >
                                 <FaCloudMoon />
                             </span>
+
+                            <Link to={`/posts/${_id}`}>
+                                <span className="comment comment-btn" role="button">
+                                    {comments && comments.length > 0 && (
+                                        <span className="comment-count">{comments.length}</span>
+                                    )}
+                                    <FaUserAstronaut className="mb-3"/>
+                                </span>
+                            </Link>
 
                             {!auth.loading && user === auth.user._id && (
                                 <button
