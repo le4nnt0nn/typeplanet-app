@@ -51,10 +51,6 @@
   margin-right: 3px;
 }
 
-.like p:active {
-  color: #89c9f3;
-}
-
 .like-btn {
   font-size: 30px;
 }
@@ -70,13 +66,17 @@
 }
 
 .comment {
-  margin-top: -9px;
+  margin-top: -10px;
   font-size: 30px;
   color: rgb(68, 1, 107);
 }
 
 .comment-btn {
   font-size: 40px;
+}
+
+.actions span {
+  margin-right: 10px;
 }
 
 .user-post img {
