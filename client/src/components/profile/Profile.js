@@ -52,7 +52,7 @@ const Profile = ({
         <>
             <div>
                 <div className="back-button">
-                    <Link to='/devs' className='back btn'>
+                    <Link to="/devs" className="back btn">
                         Back
                     </Link>
                 </div>
