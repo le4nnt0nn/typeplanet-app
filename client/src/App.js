@@ -18,8 +18,14 @@ import Post from './components/post/Post';
 
 // redux stuff (for works with redux)
 import { Provider } from 'react-redux';
-import store from "./utils/store";
+import store from './utils/store';
 import { loadUser } from './actions/auth';
+import setAuthToken from './utils/setAuthToken'
+
+const { token } = localStorage;
+if (token) {
+  setAuthToken(token);
+}
 
 const App = () => {
   useEffect(() => {
