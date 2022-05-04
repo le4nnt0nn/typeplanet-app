@@ -206,7 +206,7 @@ async function removeLike(req, res) {
         }
 
         // find the user like in likes array
-        const rmIndex = post.likes.map((like) => like.user.toString().indexOf(req.user.id));
+        const rmIndex = post.likes.map((like) => like.user.toString()).indexOf(req.user.id);
         // remove selected index in likes
         post.likes.splice(rmIndex, 1);
         await post.save();
