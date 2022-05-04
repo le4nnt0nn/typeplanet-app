@@ -19,7 +19,7 @@ const PostCard = ({
     auth,
     showActions,
 }) => {
-    console.log(comments)
+
     return (
         <>
             <div className="post-card card bg-white rounded mt-5 mb-5">
@@ -47,7 +47,7 @@ const PostCard = ({
                                 <FaCloudMoon />
                             </span>
 
-                            <Link to={`/posts/${_id}`}>
+                            <Link to={`/posts/${_id}`} style={{ textDecoration: 'none' }}>
                                 <span className="comment comment-btn" role="button">
                                     {comments && comments.length > 0 && (
                                         <span className="comment-count">{comments.length}</span>
