@@ -6,8 +6,15 @@ import ProfileCard from './ProfileCard';
 import NavbarRoot from '../setup/Navbar';
 
 const Profiles = ({ getAllProfiles, profile: { profiles } }) => {
+
+    // unmount component for cleanup
     useEffect(() => {
-        getAllProfiles();
+        let mounted = true
+        setTimeout(() => {
+            if(mounted) {
+                getAllProfiles();
+            }
+        }, 1000)
     }, [getAllProfiles]);
 
     return (

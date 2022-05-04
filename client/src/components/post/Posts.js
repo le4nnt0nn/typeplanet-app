@@ -7,10 +7,16 @@ import NavbarRoot from '../setup/Navbar';
 import PostMaker from './PostMaker';
 
 const Posts = ({ getAllPosts, post: { posts } }) => {
-    useEffect(() => {
-        getAllPosts();
-    }, [getAllPosts]);
 
+    // unmount component for cleanup
+    useEffect(() => {
+        let mounted = true
+        setTimeout(() => {
+            if(mounted) {
+                getAllPosts();
+            }
+        }, 1000)
+    }, [getAllPosts]);
 
     return (
         <>
