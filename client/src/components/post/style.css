@@ -66,6 +66,7 @@
 }
 
 .comment {
+  margin-left: 20px;
   margin-top: -10px;
   font-size: 30px;
   color: rgb(68, 1, 107);
@@ -73,6 +74,10 @@
 
 .comment-btn {
   font-size: 40px;
+}
+
+.comment-count {
+  font-size: 33px;
 }
 
 .actions span {
