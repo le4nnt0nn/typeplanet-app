@@ -193,7 +193,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
 
     try {
         // create post comment with received formData
-        const res = await axios.post(`/api/posts/comments/${postId}`, formData, config);
+        const res = await axios.post(`/api/posts/comment/${postId}`, formData, config);
 
         dispatch({
             type: ADD_COMMENT,
@@ -220,11 +220,11 @@ export const addComment = (postId, formData) => async (dispatch) => {
 export const removeComment = (postId, commentId) => async (dispatch) => {
     try {
         // remvoe post comment with received formData
-        const res = await axios.post(`/api/posts/comments/${postId}/${commentId}`);
+        await axios.delete(`/api/posts/comment/${postId}/${commentId}`);
 
         dispatch({
             type: REMOVE_COMMENT,
-            payload: res.data,
+            payload: commentId,
         });
         success('Comment successfuly removed 🗑️');
     } catch (err) {
