@@ -12,8 +12,14 @@ const Post = ({ getPost, post: { post } }) => {
     // params
     const { id } = useParams();
 
+    // unmount component for cleanup
     useEffect(() => {
-        getPost(id);
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getPost(id);
+            }
+        }, 1000)
     }, [getPost, id]);
 
     return (
