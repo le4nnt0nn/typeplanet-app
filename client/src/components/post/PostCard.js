@@ -25,7 +25,7 @@ const PostCard = ({
             <div className="post-card card bg-white rounded mt-5 mb-5">
                 <div className="content text-center">
                     <div className="categories mx-auto text-center">
-                        {categories.join(' ')}
+                        {categories && categories.join(' ')}
                     </div>
                     <p className="post-content mt-5 mb-5">{text}</p>
                 </div>
