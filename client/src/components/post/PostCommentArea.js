@@ -9,11 +9,11 @@ const PostCommentArea = ({ postId, addComment }) => {
     return (
         <>
             <div className="post-form">
-                <div className="bg-primary text-center">
+                <div className="text-center m-3">
                     <h3>Leave a comment, dev!</h3>
                 </div>
                 <form
-                    className="form my-1"
+                    className="form text-center my-1"
                     onSubmit={(e) => {
                         e.preventDefault();
                         addComment(postId, { text });
@@ -31,7 +31,8 @@ const PostCommentArea = ({ postId, addComment }) => {
                         placeholder="Your comment..."
                         required
                     ></textarea>
-                    <input type="submit" className="btn btn-dark my-1" value="Submit" />
+                    <br/>
+                    <input type="submit" className="btn m-3" value="Submit" />
                 </form>
             </div>
         </>
