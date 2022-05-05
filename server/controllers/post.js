@@ -180,6 +180,7 @@ async function putLike(req, res) {
         post.likes.unshift({ user: req.user.id });
         // save in db
         await post.save();
+
         res.json(post.likes);
     } catch (err) {
         console.log(err.message);
@@ -250,6 +251,17 @@ async function postComment(req, res) {
 
         await post.save();
 
+        // if user reach the max level, no level up
+        if (user.level < 30) {
+            // user gain level creating post
+            user.update({ level: user.level + 0.2 }, function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    console.log(result);
+                }
+            });
+        }
         res.json(post.comments);
     } catch (err) {
         console.log(err.message);
