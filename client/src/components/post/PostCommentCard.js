@@ -16,23 +16,23 @@ const PostCommentCard = ({
     auth,
 }) => (
     <>
-        <div className="post bg-white p-1 my-1">
+        <div className="post-comment-card bg-white rounded p-1 my-5">
             <div>
-                <Link to={`/devs/dev/${user}`}>
-                    <img className="round-img" src={avatar} alt="" />
-                    <h4>{name}</h4>
+                <Link to={`/devs/dev/${user}`} style={{ textDecoration: 'none' }}>
+                    <img className="comment-avatar rounded-circle mt-2" src={avatar} alt="" />
+                    <h4 className="comment-username mt-3">{name}</h4>
                 </Link>
             </div>
             <div>
-                <p className="my-1">{text}</p>
-                <p className="post-date">
+                <p className="comment-text">{text}</p>
+                <p className="comment-date">
                     Posted on
                     {' ' + moment(date).format("DD/MM/YYYY")}
                 </p>
                 {!auth.loading && user === auth.user._id && (
                     <button
                         type="button"
-                        className="btn btn-danger"
+                        className="btn btn-danger mb-2"
                         onClick={(e) => {
                             removeComment(postId, _id);
                         }}
