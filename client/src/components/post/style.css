@@ -26,7 +26,7 @@
 
 .post-content {
   color: rgb(137, 0, 179);
-  font-size: 24px;
+  font-size: 27px;
 }
 
 .actions div {
@@ -238,13 +238,58 @@ textarea {
   color: rgb(250, 166, 166);
 }
 
+/* PostComment */
+
+.post-form input {
+  background-color: #e477d5;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.post-form input:hover {
+  background-color: #bb55ad;
+  color: white;
+}
+
+.post-comment-card {
+  margin: 0 auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.post-comment-card div {
+  padding: 5px 20px
+}
+
+.post-comment-card button {
+  font-size: 22px;
+}
+
+.comment-username {
+  font-size: 26px;
+  font-weight: bold;
+  color: #9c167f;
+}
+
+.comment-avatar {
+  border: rgb(68, 2, 77) 5px solid
+}
+
+.comment-text {
+  font-size: 23px;
+}
+
+.comment-date {
+  font-size: 17px;
+}
+
 /* responsive */
 @media screen and (max-width: 600px) {
   textarea {
     width: 400px;
   }
   .post-content {
-    font-size: 20px;
+    font-size: 26px;
   }
   .categories-buttons button {
     font-size: 18px;
