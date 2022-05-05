@@ -86,7 +86,7 @@ export const addLike = (id) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
 
@@ -112,7 +112,7 @@ export const removeLike = (id) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
 
@@ -139,7 +139,7 @@ export const deletePost = (id) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
 
@@ -164,7 +164,7 @@ export const addNewPost = (formData) => async (dispatch) => {
             type: ADD_POST,
             payload: res.data,
         });
-        success('New post created ✨');
+        //success('New post created ✨');
     } catch (err) {
         dispatch({
             type: POST_ERROR,
@@ -174,7 +174,7 @@ export const addNewPost = (formData) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
 
@@ -199,7 +199,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
             type: ADD_COMMENT,
             payload: res.data,
         });
-        success('Comment successfuly added! 💬');
+        //success('Comment successfuly added! 💬');
     } catch (err) {
         dispatch({
             type: POST_ERROR,
@@ -209,7 +209,7 @@ export const addComment = (postId, formData) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
 
@@ -226,7 +226,7 @@ export const removeComment = (postId, commentId) => async (dispatch) => {
             type: REMOVE_COMMENT,
             payload: commentId,
         });
-        success('Comment successfuly removed 🗑️');
+        //success('Comment successfuly removed 🗑️');
     } catch (err) {
         dispatch({
             type: POST_ERROR,
@@ -236,6 +236,6 @@ export const removeComment = (postId, commentId) => async (dispatch) => {
                 status: err.response.status,
             }
         });
-        error('Something went wrong 👽');
+        //error('Something went wrong 👽');
     }
 };
