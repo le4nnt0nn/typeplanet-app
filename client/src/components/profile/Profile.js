@@ -45,7 +45,12 @@ const Profile = ({
 
     // get user from profile
     useEffect(() => {
-        getUserData().then(data => setUser(data))
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getUserData().then(data => setUser(data))
+            }
+        }, 1000)
     }, [user]);
 
     return (
