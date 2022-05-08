@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import useForceUpdate from 'use-force-update';
 import { Conditions } from './Conditions';
+import useSound from 'use-sound';
 
 import axios from 'axios';
 
+// sounds
+import refreshSound from '../../../sounds/refreshWeather.mp3';
+
 export const Forecast = () => {
+
+    // play refresh button sound
+    const [play] = useSound(refreshSound);
 
     // call useForceUpdate to refresh component
     const forceUpdate = useForceUpdate();
@@ -33,6 +40,9 @@ export const Forecast = () => {
      */
 
     function getForecast() {
+
+        // play refresh button sound
+        play()
 
         // refresh component when function is called
         forceUpdate()
@@ -77,7 +87,7 @@ export const Forecast = () => {
     }, [city]);
     // pass weather data to Conditions component every time
     useEffect(() => {
-        getForecast()
+        getForecast();
     }, [Conditions]);
 
     
