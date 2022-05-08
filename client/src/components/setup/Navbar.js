@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -41,33 +42,33 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     // set visibility for Me button
     useEffect(() => {
         checkProfile().then(data => setVisibility(data))
-    }, [visibility]);
+    }, [checkProfile, visibility]);
 
     const links = (
         <Nav className="ms-auto">
             <Nav.Link>
-                <Link to='/home' className='link'>Home</Link>
+                <Link to='/home' className="link">Home</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to='/posts' className='link'>Posts</Link>
+                <Link to='/posts' className="link">Posts</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to='/devs' className='link'>AstroDevs</Link>
+                <Link to='/devs' className="link">AstroDevs</Link>
             </Nav.Link>
             <Nav.Link>
                 {visibility !== 'hidden' ? (
-                    <Link to={`/me/${id}`} className='link'>
+                    <Link to={`/me/${id}`} className="link">
                         {" "}
-                        <span className='hide-sm'>Me</span>
+                        <span className="hide-sm">Me</span>
                     </Link>
                 ) : (
                     <span className={`me-noprofile hide-sm ${visibility}`}>Me</span>
                 )}
             </Nav.Link>
             <Nav.Link>
-                <Link to='/login' className='link' onClick={logout}>
+                <Link to='/login' className="link" onClick={logout}>
                     {" "}
-                    <span className='hide-sm'>Logout</span>
+                    <span className="hide-sm">Logout</span>
                 </Link>
             </Nav.Link>
         </Nav>
