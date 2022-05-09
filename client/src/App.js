@@ -18,9 +18,11 @@ import Post from './components/post/Post';
 
 // redux stuff (for works with redux)
 import { Provider } from 'react-redux';
-import store from './utils/store';
+import store, { persistor } from './utils/store';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken'
+
+import { PersistGate } from 'redux-persist/integration/react';
 
 const { token } = localStorage;
 if (token) {
@@ -34,21 +36,23 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Initial />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/devs' element={<Profiles />} />
-          <Route path='/devs/dev/:id' element={<Profile />} />
-          <Route path='/me/:id' element={<Profile />} />
-          <Route path='/create-profile' element={<CreateProfile />} />
-          <Route path='/edit-profile' element={<EditProfile />} />
-          <Route path='/posts' element={<Posts />} />
-          <Route path='/posts/:id' element={<Post />} />
-        </Routes>
-      </BrowserRouter>
+      <PersistGate persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Initial />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/devs' element={<Profiles />} />
+            <Route path='/devs/dev/:id' element={<Profile />} />
+            <Route path='/me/:id' element={<Profile />} />
+            <Route path='/create-profile' element={<CreateProfile />} />
+            <Route path='/edit-profile' element={<EditProfile />} />
+            <Route path='/posts' element={<Posts />} />
+            <Route path='/posts/:id' element={<Post />} />
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
     </Provider>
   );
 }
