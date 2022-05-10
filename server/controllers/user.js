@@ -63,7 +63,7 @@ async function register(req, res) {
             }
         };
 
-        jwt.sign(payload, 'mysecret', { expiresIn: 360000 }, (err, token) => {
+        jwt.sign(payload, 'mysecrettoken:P', { expiresIn: 360000 }, (err, token) => {
             if (err) throw err;
             res.json({ token });
         });
@@ -123,18 +123,26 @@ async function getUserById(req, res) {
  * 
  */
 
+// TODO - FOLLOW UNFOLLOW
+
 async function follow(req, res) {
+    // get user
     const user = await User.findById(req.params.id);
 
     // get follower, following & action from body
-    const { follower, following, action } = req.body;
+    const { follower, followedUser, action } = req.body;
 
     try {
+        // check if the post has already been liked, filter by user
+        if (user.following.filter((otherUser) => otherUser._id.toString() === req.params.id).length > 0) {
+
+            return res.status(400).json({ msg: 'User already followed... ' });
+        }
+
         switch (action) {
             case 'follow':
                 await Promise.all([
-                    user.findByIdAndUpdate(follower, { $push: { following: following } }),
-                    user.findByIdAndUpdate(following, { $push: { followers: follower } })
+                    user.following.push(followedUser)
 
                 ]);
                 break;
