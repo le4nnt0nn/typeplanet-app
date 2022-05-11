@@ -39,10 +39,6 @@ const Profile = ({
         return null
     }
 
-    useEffect(() => {
-        getProfileById(id);
-    }, [getProfileById, id]);
-
     // get user from profile
     useEffect(() => {
         let mounted = true
@@ -50,8 +46,18 @@ const Profile = ({
             if (mounted) {
                 getUserData().then(data => setUser(data))
             }
-        }, 1000)
+        }, 2000)
     }, [user]);
+
+    // cleanup function 
+    useEffect(() => {
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getProfileById(id)
+            }
+        }, 1000)
+    }, [getProfileById, id]);
 
     return (
         <>
