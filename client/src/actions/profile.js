@@ -5,7 +5,7 @@ import {
     PROFILE_ERROR,
     CLEAR_PROFILE,
     ACCOUNT_DELETE,
-    GET_REPOS
+    //GET_REPOS
 } from './types';
 
 // toastify
@@ -41,9 +41,6 @@ export const getCurrentProfile = () => async (dispatch) => {
 */
 
 export const getAllProfiles = () => async (dispatch) => {
-
-    // before request
-    dispatch({ type: CLEAR_PROFILE });
 
     try {
         // get profiles from res
