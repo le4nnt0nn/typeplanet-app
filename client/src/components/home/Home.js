@@ -49,19 +49,38 @@ const Home = ({
     };
 
     // loads functions
+    // cleanup function 
     useEffect(() => {
-        getCurrentProfile();
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getCurrentProfile();
+            }
+        }, 1000)
     }, [getCurrentProfile]);
 
     // set name from current user
+    // cleanup function 
     useEffect(() => {
-        getUsername().then(data => setName(data))
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getUsername().then(data => setName(data))
+            }
+        }, 1000)
     }, [name]);
 
     // check this profile
+    // cleanup function
     useEffect(() => {
-        checkProfile().then(data => setProf(data))
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                checkProfile().then(data => setProf(data))
+            }
+        }, 1000)
     }, [prof]);
+    
 
     return (
         <>
