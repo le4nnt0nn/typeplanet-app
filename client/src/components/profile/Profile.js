@@ -47,7 +47,7 @@ const Profile = ({
                 getUserData().then(data => setUser(data))
             }
         }, 2000)
-    }, [user]);
+    }, [getUserData, user]);
 
     // cleanup function 
     useEffect(() => {
