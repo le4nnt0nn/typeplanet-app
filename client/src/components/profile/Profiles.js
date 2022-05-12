@@ -14,7 +14,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles } }) => {
             if(mounted) {
                 getAllProfiles();
             }
-        }, 1000)
+        }, 2000)
     }, [getAllProfiles]);
 
     return (
