@@ -24,24 +24,36 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
     };
 
     // set name from current user
+    // cleanup function 
     useEffect(() => {
-        getCurrentUserId().then(data => setId(data))
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                getCurrentUserId().then(data => setId(data))
+            }
+        }, 1000)
     }, [id]);
 
     // checks if this user have profile, if not, hidde Me navbar button
     async function checkProfile() {
-        const res = await axios.get('api/profile');
+        const res = await axios.get('/api/profile');
         for (let i = 0; i < res.data.length; i++) {
             if (id === res.data[i].user._id) {
                 return '';
             }
         }
         return 'hidden';
-    };
+    }
 
     // set visibility for Me button
+    // cleanup function 
     useEffect(() => {
-        checkProfile().then(data => setVisibility(data))
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                checkProfile().then(data => setVisibility(data))
+            }
+        }, 1000)
     }, [checkProfile, visibility]);
 
     const links = (
@@ -50,7 +62,14 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 <Link to='/home' className="link">Home</Link>
             </Nav.Link>
             <Nav.Link>
-                <Link to='/posts' className="link">Posts</Link>
+                {visibility !== 'hidden' ? (
+                    <Link to={`/posts`} className="link">
+                        {" "}
+                        <span className="hide-sm">Posts</span>
+                    </Link>
+                ) : (
+                    <span className={`me-noprofile hide-sm ${visibility}`}>Posts</span>
+                )}
             </Nav.Link>
             <Nav.Link>
                 <Link to='/devs' className="link">AstroDevs</Link>
