@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post';
 
+import useSound from 'use-sound';
+// sounds
+import likeSound from '../../sounds/likeSound.mp3';
+
 import moment from 'moment';
 
 // icons
@@ -20,6 +24,13 @@ const PostCard = ({
     showActions,
 }) => {
 
+    const [play] = useSound(likeSound);
+
+    function like() {
+        addLike(_id)
+        play()
+    }
+
     return (
         <>
             <div className="post-card card bg-white rounded mt-5 mb-5">
@@ -35,7 +46,7 @@ const PostCard = ({
 
                             <span
                                 className="like like-btn" role="button"
-                                onClick={(e) => addLike(_id)}
+                                onClick={(e) => like()}
                             >
                                 <p>{likes && likes.length > 0 && <span>{likes.length}</span>} <FaMoon /></p>
                             </span>
