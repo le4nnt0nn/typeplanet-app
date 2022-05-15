@@ -125,11 +125,11 @@ export const deletePost = (id) => async (dispatch) => {
         // remove selected post 
         await axios.delete(`/api/posts/${id}`);
 
+        //success('Post successfuly removed 🗑️');
         dispatch({
             type: DELETE_POST,
             payload: id,
         });
-        success('Post successfuly removed 🗑️');
     } catch (err) {
         dispatch({
             type: POST_ERROR,

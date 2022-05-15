@@ -85,9 +85,9 @@ export const login = ({ email, password }) => async (dispatch) => {
     try {
         // login user with body params and config
         const res = await axios.post('/api/auth', body, config);
-        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         success('Now you are logged pal! 🚀');
-
+        dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+        
         // loads user with token
         dispatch(loadUser());
 
@@ -104,11 +104,11 @@ export const login = ({ email, password }) => async (dispatch) => {
  */
 
 export const logout = () => async (dispatch) => {
+    success('We will miss you! 🌠');
     dispatch({
         type: CLEAR_PROFILE
     });
     dispatch({
         type: DO_LOGOUT
     });
-    success('We will miss you! 🌠');
 };
