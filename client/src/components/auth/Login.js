@@ -7,7 +7,15 @@ import { login } from '../../actions/auth';
 // tostify
 import { ToastContainer } from 'react-toastify';
 
+import useSound from 'use-sound';
+// sounds
+import welcomeSound from '../../sounds/welcomeSound.mp3';
+
+
 const Login = ({ login, isAuth }) => {
+
+    // welcome sound
+    const [play] = useSound(welcomeSound);
 
     // state for FormData
     const [formData, setFormData] = useState({
@@ -26,6 +34,7 @@ const Login = ({ login, isAuth }) => {
         // cancels the event if it is cancelable
         e.preventDefault();
         login({ email, password });
+        play();
     }
 
     // if user logged then redirects to /home
