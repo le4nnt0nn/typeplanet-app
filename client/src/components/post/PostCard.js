@@ -7,6 +7,8 @@ import { addLike, removeLike, deletePost } from '../../actions/post';
 import useSound from 'use-sound';
 // sounds
 import likeSound from '../../sounds/likeSound.mp3';
+import noLikeSound from '../../sounds/noLikeSound.mp3';
+import removePostSound from '../../sounds/removePostSound.mp3';
 
 import moment from 'moment';
 
@@ -25,10 +27,22 @@ const PostCard = ({
 }) => {
 
     const [play] = useSound(likeSound);
+    const [play2] = useSound(noLikeSound);
+    const [play3] = useSound(removePostSound);
 
     function like() {
-        addLike(_id)
-        play()
+        addLike(_id);
+        play();
+    }
+
+    function noLike() {
+        removeLike(_id);
+        play2();
+    }
+
+    function removePost() {
+        deletePost(_id);
+        play3();
     }
 
     return (
@@ -53,7 +67,7 @@ const PostCard = ({
 
                             <span
                                 className="nolike nolike-btn" role="button"
-                                onClick={(e) => removeLike(_id)}
+                                onClick={(e) => noLike()}
                             >
                                 <FaCloudMoon />
                             </span>
@@ -69,7 +83,7 @@ const PostCard = ({
 
                             {!auth.loading && user === auth.user._id && (
                                 <button
-                                    onClick={(e) => deletePost(_id)}
+                                    onClick={(e) => removePost()}
                                     type="button"
                                     className="remove-btn text-center mb-3"
                                 >
