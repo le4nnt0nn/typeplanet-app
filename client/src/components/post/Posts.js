@@ -8,8 +8,8 @@ import PostMaker from './PostMaker';
 
 const Posts = ({ getAllPosts, post: { posts } }) => {
 
-    // filter
-    let [filter, setFilter] = useState(false);
+    // filter for posts
+    let [filter, setFilter] = useState('');
 
     // unmount component for cleanup
     useEffect(() => {
@@ -21,27 +21,55 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
         }, 1000)
     }, [getAllPosts]);
 
+
     return (
         <>
             <body>
                 <NavbarRoot />
                 <div>
                     <PostMaker />
-                    <div className="mx-auto text-center m-5">
-                        <button className="btn text-center mx-auto bg-warning" onClick={() => setFilter(true)}>Filter by Interest</button>
-                        <button className="btn text-center mx-auto bg-warning" onClick={() => setFilter(false)}>All</button>
+                    <div className="filter mx-auto text-center">
+                        <button className="btn text-center mx-auto btn-filter btn-front" onClick={() => setFilter('front')}>Show Front 👁️</button>
+                        <button className="btn text-center mx-auto btn-filter btn-back" onClick={() => setFilter('back')}>Show Back 🧠</button>
+                        <button className="btn text-center mx-auto btn-filter btn-all" onClick={() => setFilter('')}>All 🌌</button>
                     </div>
                 </div>
                 <div>
                     {posts && posts.length > 0 ? (
                         <div>
-                            {filter === true ? (
-                                // TODO - FILTER HERE
-                                <h2>filtering...</h2>
+                            {filter === 'front' ? (
+                                <div>
+                                    {
+                                        posts.filter(post =>
+                                            post.categories.includes('Angular')
+                                            || post.categories.includes('React')
+                                            || post.categories.includes('JS')).map(postsFiltered => (
+                                                <li>
+                                                    <PostCard key={postsFiltered._id} post={postsFiltered} />
+                                                </li>
+                                            ))
+                                    }
+                                </div>
                             ) : (
-                                posts.map((post) => (
-                                    <PostCard key={post._id} post={post} />
-                                ))
+                                <div>
+                                    {filter === 'back' ? (
+                                        <div>
+                                            {
+                                                posts.filter(post =>
+                                                    post.categories.includes('Java')
+                                                    || post.categories.includes('C#')).map(postsFiltered => (
+                                                        <li>
+                                                            <PostCard key={postsFiltered._id} post={postsFiltered} />
+                                                        </li>
+                                                    ))
+                                            }
+                                        </div>
+                                    ) : (
+                                        posts.map((post) => (
+                                            <PostCard key={post._id} post={post} />
+                                        ))
+                                    )}
+                                </div>
                             )}
                         </div>
                     ) : (
