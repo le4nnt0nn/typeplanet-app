@@ -104,12 +104,12 @@ const EditProfile = ({ createProfile }) => {
                                         onChange={(e) => handleChange(e)}
                                     />
                                     <small className="form-text">
-                                        Please use comma separated values (eg. JS,NODE,REACT)
+                                        Please use comma separated values (eg. JS,JAVA,REACT)
                                     </small>
                                     <p className="recommended mt-3">
                                         Recommended: Use these options
                                         <br/>
-                                        (<strong>REACT, ANGULAR, JS, NODE, JAVA, C#</strong>)
+                                        (<strong>REACT, ANGULAR, JS, JAVA, C#</strong>)
                                     </p>
                                 </div>
                                 <button className='btn btn-outline-light btn-lg px-5 custom-primary-button'>Submit</button>
