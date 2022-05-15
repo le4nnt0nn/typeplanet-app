@@ -283,6 +283,35 @@ textarea {
   font-size: 17px;
 }
 
+/* Posts */
+.filter {
+  margin-top: 120px;
+}
+
+.filter button {
+  margin-left: 10px;
+  border-radius: 20px;
+}
+
+.btn-filter {
+  background-color: rgb(204, 204, 204);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-filter:hover {
+  background-color: rgb(143, 143, 143);
+  color: #ffe894;
+}
+
+.btn-front {
+  color: #b81919;
+}
+
+.btn-back {
+  color: #bd1f8d;
+}
+
 /* responsive */
 @media screen and (max-width: 600px) {
   textarea {
