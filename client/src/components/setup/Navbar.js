@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
+import useSound from 'use-sound';
+// sounds
+import logoutSound from '../../sounds/byeSound.mp3';
+
 import axios from 'axios';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -56,6 +60,14 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
         }, 1000)
     }, [checkProfile, visibility]);
 
+    // play sound on logout
+    const [play] = useSound(logoutSound);
+
+    function byeLogout() {
+        logout();
+        play();
+    }
+
     const links = (
         <Nav className="ms-auto">
             <Nav.Link>
@@ -85,7 +97,7 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 )}
             </Nav.Link>
             <Nav.Link>
-                <Link to='/login' className="link" onClick={logout}>
+                <Link to='/login' className="link" onClick={byeLogout}>
                     {" "}
                     <span className="hide-sm">Logout</span>
                 </Link>
