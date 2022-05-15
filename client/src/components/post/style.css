@@ -45,6 +45,11 @@
 .like {
   font-size: 30px;
   color: rgb(109, 109, 109);
+  transition: transform .2s;
+}
+
+.like:hover {
+  transform: scale(1.2);
 }
 
 .like p span {
@@ -59,6 +64,11 @@
   margin-top: -9px;
   font-size: 30px;
   color: rgb(240, 88, 88);
+  transition: transform .2s;
+}
+
+.nolike:hover {
+  transform: scale(1.2);
 }
 
 .nolike-btn {
