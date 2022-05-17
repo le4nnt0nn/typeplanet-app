@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import { BrowserRouter, Link, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -8,11 +8,9 @@ import { getCurrentProfile } from "../../actions/profile";
 
 import './style.css';
 
-// tostify
-import { ToastContainer } from 'react-toastify';
-
 import NavbarRoot from '../setup/Navbar';
 import { Forecast } from '../home/weather/Forecast';
+import Cards from './card/Cards';
 
 /**
  * @desc fetch data using actions, bring from redux's state and send it to components
@@ -30,7 +28,7 @@ const Home = ({
     async function checkProfile() {
         const res = await axios.get('/api/profile');
         let itsMe = '';
-        for(let i = 0; i < res.data.length; i++) {
+        for (let i = 0; i < res.data.length; i++) {
             if (res.data[i].user._id === user._id) {
                 itsMe = res.data[i].user._id
                 return itsMe
@@ -80,7 +78,7 @@ const Home = ({
             }
         }, 1000)
     }, [prof]);
-    
+
 
     return (
         <>
@@ -99,15 +97,18 @@ const Home = ({
                                 <p>Hey dev! You don't have a profile yet...</p>
                                 <p>Why don't you <span className="text-uppercase">create it</span>? ✨</p>
                                 <button>
-                                <Link to="/create-profile" className="btn mt-1">
-                                   <strong>Create Profile</strong>
-                                </Link>
+                                    <Link to="/create-profile" className="btn mt-1">
+                                        <strong>Create Profile</strong>
+                                    </Link>
                                 </button>
                             </div>
                         </>
                     )}
-                    <div class="weather-wrapper container mt-5 mb-5 text-center">
+                    <div className="weather-wrapper container mt-5 mb-5 text-center">
                         <Forecast />
+                    </div>
+                    <div className="cards-wrapper mt-5 mb-5">
+                        <Cards />
                     </div>
                 </section>
             </body>
