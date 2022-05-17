@@ -80,72 +80,72 @@ export const angularInfo = [
 export const jsInfo = [
     {
         id: 10,
-        title: "React",
+        title: "Array Push",
         image: js,
-        url: "https://faztweb.com",
-        txt: "Lorem Ipsum React Amet"
+        url: "https://www.javascripttutorial.net/javascript-array-push/",
+        txt: "You’ll learn how to use the JavaScript Array push() method to add one or more elements to the end of an array."
     },
     {
         id: 11,
-        title: "React2",
+        title: "Callback Functions: Everything You Need to Know",
         image: js,
-        url: "https://faztweb.com",
-        txt: "Lorem Ipsum React Amet"
+        url: "https://www.simplilearn.com/tutorials/javascript-tutorial/callback-function-in-javascript#:~:text=A%20JavaScript%20callback%20is%20a,called%20as%20a%20callback%20function.",
+        txt: "A callback's primary purpose is to execute code in response to an event. These events might be user-initiated, such as mouse clicks or typing. With a callback, you may instruct your application to execute this code every time the user clicks a key on the keyboard."
     },
     {
         id: 12,
-        title: "React3",
+        title: "6 Advanced JS Concepts You Should Know",
         image: js,
-        url: "https://faztweb.com",
-        txt: "Lorem Ipsum React Amet"
+        url: "https://www.webfx.com/blog/web-design/6-advanced-javascript-techniques-you-should-know/",
+        txt: "Become a Pro Developer on JS with this amazing blog."
     },
 ];
 
 export const javaInfo = [
     {
         id: 13,
-        title: "Java",
+        title: "Java Swing Tutorial",
         image: java,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://www.javatpoint.com/java-swing",
+        txt: "Java Swing tutorial is a part of Java Foundation Classes (JFC) that is used to create window-based applications. It is built on the top of AWT (Abstract Windowing Toolkit) API and entirely written in java."
     },
     {
         id: 14,
-        title: "Java2",
+        title: "Best Java Performance Testing Tools",
         image: java,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://www.jrebel.com/blog/best-java-performance-testing-tools-and-technologies",
+        txt: "Java performance testing isn't just for testing teams anymore. With the increasing adoption of DevOps methodology — especially as it applies to testing early and often — many companies are making performance testing a responsibility for developers."
     },
     {
         id: 15,
-        title: "Java3",
+        title: "Collections in Java",
         image: java,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://www.geeksforgeeks.org/collections-in-java-2/",
+        txt: "The Collection interface (java.util.Collection) and Map interface (java.util.Map) are the two main “root” interfaces of Java collection classes."
     },
 ];
 
 export const cInfo = [
     {
         id: 16,
-        title: "Java",
+        title: "Shopping Cart In MVC",
         image: c,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://www.c-sharpcorner.com/article/creating-shopping-cart-application-from-scratch-in-mvc-part2/",
+        txt: "In online marketing, a shopping cart is a piece of e-commerce software running on a web server, that allows visitors to an Internet shop to select items for eventual purchase, analogous to the American English term shopping cart. In British English, it is generally known as a shopping basket, almost exclusively shortened on websites to basket."
     },
     {
         id: 17,
-        title: "Java2",
+        title: "Class & Objects",
         image: c,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://www.guru99.com/c-sharp-class-object.html",
+        txt: "C# is based on the C++ programming language. Hence, the C# programming language has in-built support for classes and objects. A class is nothing but an encapsulation of properties and methods that are used to represent a real-time entity."
     },
     {
         id: 18,
-        title: "Java3",
+        title: "Tips For C#",
         image: c,
-        url: "https://blog.faztweb.com",
-        txt: "Lorem Ipsum Java Amet"
+        url: "https://hackernoon.com/top-25-c-programming-tips-xlo31wv",
+        txt: "Discover awesome tips about coding in C#."
     },
 ];
 
