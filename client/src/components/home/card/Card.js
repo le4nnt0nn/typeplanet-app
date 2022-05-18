@@ -11,7 +11,7 @@ function Card({ img, title, txt, url }) {
             </div>
             <div className="card-body text-light">
                 <h4 className="card-title">{title}</h4>
-                <p className="card-text text-info">
+                <p className="card-text">
                     {txt ? txt : 'other info here...'}
                 </p>
                 <a
