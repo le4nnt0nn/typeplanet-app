@@ -100,7 +100,7 @@ async function createProfile(req, res) {
 
 async function getAllProfiles(req, res) {
     try {
-        const profiles = await Profile.find().populate('user', ['name', 'avatar', 'level', 'city']);
+        const profiles = await Profile.find().populate('user', ['name', 'avatar', 'level', 'city', 'followers', 'following']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
