@@ -59,6 +59,21 @@ const Profile = ({
         }, 1000)
     }, [getProfileById, id]);
 
+    // function for follow button 
+    async function followUser() {
+        const res = await axios.put(`/api/users/follow/${profile.profiles.user._id}`);
+        return res;
+    }
+    // function for unfollow button 
+    async function unfollowUser() {
+        const res = await axios.put(`/api/users/unfollow/${profile.profiles.user._id}`);
+        return res;
+    }
+
+    // followers & following
+    const followers = user.followers && user.followers.length > 0 ? user.followers.length : 0;
+    const following = user.following && user.following.length > 0 ? user.following.length : 0;
+    
     return (
         <>
             <div>
@@ -69,8 +84,14 @@ const Profile = ({
                 </div>
                 <div className="profile-view-card">
                     <div className="top-wrap text-center">
-                        {auth.user._id === id && (
+                        {auth.user._id && auth.user._id === id && (
                             <Link to='/edit-profile' className='edit btn'>Edit</Link>
+                        )}
+                        {auth.user._id !== id && (
+                            <div>
+                                <button onClick={followUser}>FOLLOW</button>
+                                <button onClick={unfollowUser}>UNFO</button>
+                            </div>
                         )}
                         <div className="avatar-prof">
                             <img src={user.avatar} className="rounded-circle" />
@@ -81,6 +102,10 @@ const Profile = ({
                         </div>
                         <p className="level-text">Level: {Math.round(user.level)}</p>
                         <BarLevel level={user.level} />
+                        <div className="follows-profile mt-5">
+                            <p><span>Followers</span>: {followers}</p>
+                            <p><span>Following</span>: {following}</p>
+                        </div>
                         <div className="city-text text-white">
                             <FaBuilding />
                             <p>{user.city}</p>
