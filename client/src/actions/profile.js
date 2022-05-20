@@ -88,12 +88,6 @@ export const getProfileById = (userId) => async (dispatch) => {
 }
 
 /**
-* @desc Get users github repos
-*/
-
-// TODO getGitHubRepos
-
-/**
 * @desc Create or update profile with redirect
 * @param formData submit
 * @param edit if is true, update profile
