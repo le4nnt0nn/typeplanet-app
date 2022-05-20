@@ -117,55 +117,78 @@ async function getUserById(req, res) {
 /**
  * Follow
  * 
- * @route POST /api/users/follow/:id
+ * @route PUT /api/users/follow/:id
  * @desc Follow & following route
  * @access PRIVATE
  * 
  */
 
-// TODO - FOLLOW UNFOLLOW
-
 async function follow(req, res) {
     // get user
     const user = await User.findById(req.params.id);
 
-    // get follower, following & action from body
-    const { follower, followedUser, action } = req.body;
+    // get second user
+    const secondUser = await User.findById(req.user.id);
 
     try {
-        // check if the post has already been liked, filter by user
-        if (user.following.filter((otherUser) => otherUser._id.toString() === req.params.id).length > 0) {
-
+        // check if the user has already been followed, filter by user
+        if (user.followers.filter((follower) => follower.user.toString() === req.user.id).length > 0) {
             return res.status(400).json({ msg: 'User already followed... ' });
         }
 
-        switch (action) {
-            case 'follow':
-                await Promise.all([
-                    user.following.push(followedUser)
+        // put user in the begining of following array
+        user.followers.unshift({ user: req.user.id });
 
-                ]);
-                break;
+        // following user
+        secondUser.following.unshift({ user: req.params.id });
 
-            case 'unfollow':
-                await Promise.all([
-                    user.findByIdAndUpdate(follower, { $pull: { following: following } }),
-                    user.findByIdAndUpdate(following, { $pull: { followers: follower } })
+        // save in db
+        await user.save();
+        await secondUser.save();
 
-                ]);
-                break;
-
-            default:
-                break;
-        }
-
-        res.json({ done: true });
-
+        res.json(user.followers);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');
     }
 }
+
+/**
+ * Unfollow
+ * 
+ * @route PUT /api/users/unfollow/:id
+ * @desc unfollow route
+ * @access PRIVATE
+ * 
+ */
+async function unfollow(req, res) {
+    try {
+        const user = await User.findById(req.params.id);
+
+        // get second user
+        const secondUser = await User.findById(req.user.id);
+
+        // if user don't follow yet, then error 400 -> Bad Request
+        if (user.followers.filter((follower) => follower.user.toString() === req.user.id).length === 0) {
+            return res.status(400).json({ msg: 'User has not been followed yet' });
+        }
+
+        // find the user followed in following array
+        const rmIndex = user.followers.map((follower) => follower.user.toString()).indexOf(req.user.id);
+        const rmIndexFollowing = secondUser.following.map((following) => following.user.toString()).indexOf(req.params.id);
+        // remove selected index in likes
+        user.followers.splice(rmIndex, 1);
+        secondUser.following.splice(rmIndexFollowing, 1);
+        await user.save();
+        await secondUser.save();
+
+        res.json(user.followers);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send('Server error');
+    }
+}
+
 
 /**
  * Remove User
@@ -178,7 +201,7 @@ async function follow(req, res) {
 
 async function deleteUser(req, res) {
     const user = await User.findByIdAndDelete(req.params.id);
-    res.json({ msg: `User has been removed: ${user}`});
+    res.json({ msg: `User has been removed: ${user}` });
 }
 
 module.exports = {
@@ -186,5 +209,6 @@ module.exports = {
     getAllUsers,
     getUserById,
     follow,
+    unfollow,
     deleteUser
 }
