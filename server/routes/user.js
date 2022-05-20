@@ -3,13 +3,15 @@ const router = express.Router();
 const { check } = require("express-validator");
 
 const UserController = require('../controllers/user');
+const auth = require('../middleware/auth');
 
 router.post('/register', [
     check('name', 'Name is required').not().isEmpty(),
     check('email', 'Please insert a valid email').isEmail(),
     check('password', 'Please enter a password with 8 or more characters').isLength({ min: 8 })
 ], UserController.register)
-    .post('/follow/:id', UserController.follow)
+    .put('/follow/:id', auth, UserController.follow)
+    .put('/unfollow/:id', auth, UserController.unfollow)
     .get('/', UserController.getAllUsers)
     .get('/:id', UserController.getUserById)
     //.put('/', UserController.**)
