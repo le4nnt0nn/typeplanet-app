@@ -1,7 +1,6 @@
 /* ProfileCard styles */
 
 .profile-card {
-  cursor: pointer;
   margin: 0 auto;
   padding: 20px;
   width: 500px;
@@ -27,6 +26,45 @@
 
 .description {
   font-style: italic;
+}
+
+.follows {
+  text-align: center;
+  border-radius: 20px;
+  background-color: #e9c642;
+}
+
+.follows-profile {
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 20px;
+  background-color: #e9c642;
+}
+
+.follows p {
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block
+}
+
+.follows p span {
+  font-weight: bold;
+  color: #7f30ac;
+}
+
+.follows-profile p {
+  margin-top: 15px;
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block
+}
+
+.follows-profile p span {
+  font-weight: bold;
+  color: #7f30ac;
 }
 
 .topics-text {
