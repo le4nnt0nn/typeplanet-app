@@ -198,6 +198,25 @@
   font-size: 30px;
 }
 
+.follow-btn {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(80, 172, 80);
+}
+
+.follow-btn:hover {
+  background-color: rgb(107, 221, 107);
+}
+
+.unfollow-btn {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(211, 76, 76);
+}
+
+.unfollow-btn:hover {
+  background-color: rgb(236, 88, 88);
+}
 
 /* responsive */
 
