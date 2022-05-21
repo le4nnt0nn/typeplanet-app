@@ -62,18 +62,20 @@ const Profile = ({
     // function for follow button 
     async function followUser() {
         const res = await axios.put(`/api/users/follow/${profile.profiles.user._id}`);
+        window.location.reload();
         return res;
     }
     // function for unfollow button 
     async function unfollowUser() {
         const res = await axios.put(`/api/users/unfollow/${profile.profiles.user._id}`);
+        window.location.reload();
         return res;
     }
 
     // followers & following
     const followers = user.followers && user.followers.length > 0 ? user.followers.length : 0;
     const following = user.following && user.following.length > 0 ? user.following.length : 0;
-    
+
     return (
         <>
             <div>
@@ -84,13 +86,16 @@ const Profile = ({
                 </div>
                 <div className="profile-view-card">
                     <div className="top-wrap text-center">
-                        {auth.user._id && auth.user._id === id && (
+                        {auth.user._id && auth.user._id === user._id && (
                             <Link to='/edit-profile' className='edit btn'>Edit</Link>
                         )}
                         {auth.user._id !== id && (
                             <div>
-                                <button onClick={followUser}>FOLLOW</button>
-                                <button onClick={unfollowUser}>UNFO</button>
+                                {auth.user.following.find(e => e.user === user._id) ? (
+                                    <button className="unfollow-btn mt-3" onClick={unfollowUser}>UNFOLLOW</button>
+                                ) : (
+                                    <button className="follow-btn mt-3" onClick={followUser}>FOLLOW</button>
+                                )}
                             </div>
                         )}
                         <div className="avatar-prof">
