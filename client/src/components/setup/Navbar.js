@@ -84,7 +84,14 @@ const NavbarRoot = ({ auth: { isAuth }, logout }) => {
                 )}
             </Nav.Link>
             <Nav.Link>
-                <Link to='/devs' className="link">AstroDevs</Link>
+                {visibility !== 'hidden' ? (
+                    <Link to='/devs' className="link">
+                        {" "}
+                        <span className="hide-sm">AstroDevs</span>
+                    </Link>
+                ) : (
+                    <span className={`me-noprofile hide-sm ${visibility}`}>AstroDevs</span>
+                )}
             </Nav.Link>
             <Nav.Link>
                 {visibility !== 'hidden' ? (
