@@ -25,7 +25,7 @@ const PostCard = ({
     auth,
     showActions,
 }) => {
-
+    
     const [play] = useSound(likeSound);
     const [play2] = useSound(noLikeSound);
     const [play3] = useSound(removePostSound);

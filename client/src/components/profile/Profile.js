@@ -6,6 +6,10 @@ import { Link, useParams } from 'react-router-dom';
 
 import axios from 'axios';
 
+// sounds
+import useSound from 'use-sound';
+import followSound from '../../sounds/followSound.mp3';
+
 import moment from 'moment';
 
 // icons
@@ -20,6 +24,9 @@ const Profile = ({
     profile,
     auth,
 }) => {
+
+    const [play] = useSound(followSound);
+
     // params
     const { id } = useParams();
 
@@ -61,12 +68,14 @@ const Profile = ({
 
     // function for follow button 
     async function followUser() {
+        play();
         const res = await axios.put(`/api/users/follow/${profile.profiles.user._id}`);
         window.location.reload();
         return res;
     }
     // function for unfollow button 
     async function unfollowUser() {
+        play();
         const res = await axios.put(`/api/users/unfollow/${profile.profiles.user._id}`);
         window.location.reload();
         return res;
