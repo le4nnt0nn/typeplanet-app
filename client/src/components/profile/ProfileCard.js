@@ -32,8 +32,8 @@ const ProfileCard = ({
                 <Link to={`dev/${_id}`} className="view-button btn">View</Link>
             </div>
         </>
-    )
-}
+    );
+};
 
 ProfileCard.propTypes = {
     profile: PropTypes.object.isRequired,

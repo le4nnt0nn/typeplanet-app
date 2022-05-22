@@ -146,8 +146,8 @@ const Profile = ({
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,

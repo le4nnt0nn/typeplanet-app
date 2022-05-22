@@ -11,7 +11,7 @@ const Profiles = ({ getAllProfiles, profile: { profiles } }) => {
     useEffect(() => {
         let mounted = true
         setTimeout(() => {
-            if(mounted) {
+            if (mounted) {
                 getAllProfiles();
             }
         }, 2000)
@@ -38,8 +38,8 @@ const Profiles = ({ getAllProfiles, profile: { profiles } }) => {
                 </div>
             </body>
         </>
-    )
-}
+    );
+};
 
 Profiles.propTypes = {
     getAllProfiles: PropTypes.func.isRequired,

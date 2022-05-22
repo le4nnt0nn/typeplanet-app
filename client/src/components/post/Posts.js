@@ -78,8 +78,8 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                 </div>
             </body>
         </>
-    )
-}
+    );
+};
 
 Posts.propTypes = {
     getAllPosts: PropTypes.func.isRequired,

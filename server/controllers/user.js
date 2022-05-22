@@ -104,17 +104,6 @@ async function getUserById(req, res) {
 }
 
 /**
- * Update User
- * 
- * @route PUT /api/users/:id
- * @desc Update user by id
- * @access PUBLIC
- * 
- */
-
-// TODO - PUT
-
-/**
  * Follow
  * 
  * @route PUT /api/users/follow/:id

@@ -133,8 +133,8 @@ const PostMaker = ({ addNewPost }) => {
                 ><FaTrash /></button>
             </div>
         </>
-    )
-}
+    );
+};
 
 PostMaker.propTypes = {
     addNewPost: PropTypes.func.isRequired,

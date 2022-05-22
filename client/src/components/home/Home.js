@@ -83,10 +83,10 @@ const Home = ({
     return (
         <>
             <body>
-                <section class="gradient-custom">
+                <section className="gradient-custom">
                     <NavbarRoot />
-                    <img class="astro astro-home center" src="astro2.png" alt="Astro" />
-                    <h3 class="user-text text-center"><strong>{name}</strong>'s spaceship</h3>
+                    <img className="astro astro-home center" src="astro2.png" alt="Astro" />
+                    <h3 className="user-text text-center"><strong>{name}</strong>'s spaceship</h3>
                     {prof !== null ? (
                         <>
 
@@ -113,7 +113,7 @@ const Home = ({
                 </section>
             </body>
         </>
-    )
+    );
 };
 
 Home.propTypes = {

@@ -57,20 +57,20 @@ const EditProfile = ({ createProfile }) => {
 
     return (
         <>
-            <nav class="float-end d-flex mr-2">
-                <div class="topbar_item"><Link to="/home">Back</Link></div>
+            <nav className="float-end d-flex mr-2">
+                <div className="topbar_item"><Link to="/home">Back</Link></div>
             </nav>
-            <div class="container py-5 mt-5 text-center">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="text-white custom-primary">
+            <div className="container py-5 mt-5 text-center">
+                <div className="row d-flex justify-content-center align-items-center h-100">
+                    <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div className="text-white custom-primary">
                             <form class="p-5 text-center" className="form" onSubmit={(e) => handleSubmit(e)}>
-                                <h2 class="mb-2 text-uppercase">Edit your profile!</h2>
-                                <p class="text-white-50 mb-5">Modify some info about yourself :)</p>
+                                <h2 className="mb-2 text-uppercase">Edit your profile!</h2>
+                                <p className="text-white-50 mb-5">Modify some info about yourself :)</p>
 
                                 <div className="form-group form-outline form-white mb-4">
                                     <textarea
-                                        class="form-control form-control-lg"
+                                        className="form-control form-control-lg"
                                         placeholder="Put a short description about you, dev!"
                                         name="description"
                                         value={description}
@@ -83,7 +83,7 @@ const EditProfile = ({ createProfile }) => {
 
                                 <div className="form-group form-outline form-white mb-4">
                                     <textarea
-                                        class="form-control form-control-lg"
+                                        className="form-control form-control-lg"
                                         placeholder="Here's your bio!"
                                         name="bio"
                                         value={bio}
@@ -96,7 +96,7 @@ const EditProfile = ({ createProfile }) => {
 
                                 <div className="form-group form-outline form-white mb-4">
                                     <input
-                                        class="form-control form-control-lg"
+                                        className="form-control form-control-lg"
                                         type="text"
                                         placeholder="Your topics"
                                         name="topics"
@@ -108,7 +108,7 @@ const EditProfile = ({ createProfile }) => {
                                     </small>
                                     <p className="recommended mt-3">
                                         Recommended: Use these options
-                                        <br/>
+                                        <br />
                                         (<strong>REACT, ANGULAR, JS, JAVA, C#</strong>)
                                     </p>
                                 </div>

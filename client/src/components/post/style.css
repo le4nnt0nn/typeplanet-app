@@ -80,6 +80,12 @@
   margin-top: -10px;
   font-size: 30px;
   color: rgb(68, 1, 107);
+  transition: 0.5s;
+}
+
+.comment:hover {
+  color: rgb(173, 71, 233);
+  transition: 0.5s;
 }
 
 .comment-btn {

@@ -96,7 +96,7 @@ export const Forecast = () => {
 
     return (
         // brackets allows mix JavaScript with HTML
-        <div className='p-5'>
+        <div className="p-5">
             <Conditions
                 responseObj={responseObj}
                 error={error}

@@ -7,8 +7,8 @@ export const Conditions = (props) => {
             {props.responseObj.cod === 200 ?
                 <div>
                     <h2><strong>{props.responseObj.name}</strong></h2>
-                    <div className='temp-wrapper'>
-                        <h2 className='temp'>{Math.round(props.responseObj.main.temp)}º</h2>
+                    <div className="temp-wrapper">
+                        <h2 className="temp">{Math.round(props.responseObj.main.temp)}º</h2>
                     </div>
                     <img src={`http://openweathermap.org/img/wn/${props.responseObj.weather[0].icon}@2x.png`}></img>
                 </div>

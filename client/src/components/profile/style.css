@@ -17,7 +17,7 @@
 }
 
 .avatar-profile-card {
-  border: rgb(68, 2, 77) 5px solid
+  border: rgb(68, 2, 77) 5px solid;
 }
 
 .name {
@@ -46,7 +46,7 @@
   margin-left: 10px;
   font-size: 20px;
   font-weight: bold;
-  display: inline-block
+  display: inline-block;
 }
 
 .follows p span {
@@ -59,7 +59,7 @@
   margin-left: 10px;
   font-size: 24px;
   font-weight: bold;
-  display: inline-block
+  display: inline-block;
 }
 
 .follows-profile p span {
@@ -79,7 +79,7 @@
 
 .view-button {
   margin: 10px;
-  background-image: url('../../../public/profile-ground.gif');
+  background-image: url("../../../public/profile-ground.gif");
   color: white;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   font-weight: bold;
@@ -120,7 +120,7 @@
 }
 
 .top-wrap {
-  background-image: url('../../../public/profile-ground.gif');
+  background-image: url("../../../public/profile-ground.gif");
   background-size: cover;
   margin: 40px;
   border-radius: 8px;
@@ -146,7 +146,7 @@
 }
 
 .avatar-prof img {
-    border: rgb(68, 2, 77) 5px solid
+  border: rgb(68, 2, 77) 5px solid;
 }
 
 .secondary-prof-text {
@@ -225,5 +225,3 @@
     width: 300px;
   }
 }
-
-

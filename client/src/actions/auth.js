@@ -14,8 +14,6 @@ import {
 // toastify
 import { success, error } from '../utils/toasts';
 
-// TEMPORAL ERROR RESPONSES
-
 /**
  * @desc loads user with token from localStorage & then takes a response from request
  */

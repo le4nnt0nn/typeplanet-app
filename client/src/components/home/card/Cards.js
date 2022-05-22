@@ -55,6 +55,6 @@ function Cards() {
             </div>
         </div>
     );
-}
+};
 
 export default Cards;

@@ -2,9 +2,6 @@ export const GET_PROFILE = 'GET_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const ACCOUNT_DELETE = 'ACCOUNT_DELETE';
-//export const GET_REPOS = 'GET_REPOS';
-
-// TODO - GITHUB REPOS
 
 /**
  * @prop profile get all profile data
@@ -15,7 +12,6 @@ export const ACCOUNT_DELETE = 'ACCOUNT_DELETE';
 const initialState = {
     profile: null,
     profiles: [],
-    //repos: [],
     error: {},
 };
 
