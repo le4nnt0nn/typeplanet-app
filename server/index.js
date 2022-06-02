@@ -16,11 +16,11 @@ app.use('/api', routes);
 
 // deploy to heroku
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('app/client/build));
+    app.use(express.static('client/build'));
     app.use('/api', routes);
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname , 'app/client/build', 'index.html'));
+        res.sendFile(path.resolve(__dirname , 'client', 'build', 'index.html'));
     }); 
 }
 
