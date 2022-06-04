@@ -135,12 +135,15 @@ h1 {
 
 @media screen and (max-width: 600px) {
   .title {
-    font-size: 80px;
+    font-size: 65px;
   }
   .logo {
     width: 150px;
   }
   .astro {
     width: 150px;
+  }
+  h3 {
+    font-size: 30px;
   }
 }

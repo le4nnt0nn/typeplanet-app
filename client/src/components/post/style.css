@@ -331,15 +331,19 @@ textarea {
 /* responsive */
 @media screen and (max-width: 600px) {
   textarea {
-    width: 400px;
+    width: 350px;
   }
   .post-content {
-    font-size: 26px;
+    font-size: 20px;
   }
   .categories-buttons button {
     font-size: 18px;
   }
   .reset-btn {
     font-size: 20px;
+  }
+  .remove-btn {
+    width: 40px;
+    font-size: 21px;
   }
 }
