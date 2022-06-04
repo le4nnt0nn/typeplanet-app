@@ -227,4 +227,16 @@
   .follows-profile p {
     font-size: 19px;
   }
+  .secondary-prof-text {
+    font-size: 25px;
+  }
+  .bio-text {
+    font-size: 16px;
+  }
+  .topics-text {
+    font-size: 16px;
+  }
+  .posts-text {
+    font-size: 22px;
+  }
 }
