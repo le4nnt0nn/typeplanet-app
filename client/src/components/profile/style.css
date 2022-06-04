@@ -224,4 +224,7 @@
   .profile-card {
     width: 300px;
   }
+  .follows-profile p {
+    font-size: 19px;
+  }
 }
