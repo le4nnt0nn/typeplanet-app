@@ -5,6 +5,7 @@
 ## 📝 About
 
 TypePlanet is a social network aimed at software developers, where they can share their knowledge and ideas.
+
 <br/>
 <img style="text-align: center;" src="./docs/initScreen.gif">
 <br/>
