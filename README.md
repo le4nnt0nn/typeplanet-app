@@ -211,7 +211,7 @@ npm run dev
 
 ## ⭐ Author
 
-<div style="text-align: center">
+<div align="center" >
 <img style="border-radius: 50%; width: 200px" src="./docs/avatar.jpg">
 
 Deeply proud of this project, **Le4nnt0nn** :)
