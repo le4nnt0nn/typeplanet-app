@@ -19,7 +19,6 @@ TypePlanet is a social network aimed at software developers, where they can shar
 3. [Install](#install)
 4. [About the App](#app) 
     4.1. [API](#api)
-
     4.2. [Screenshots](#screens)
 5.  [Author](#author)
 
