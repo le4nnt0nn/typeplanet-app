@@ -2,6 +2,15 @@
  Social Network with MERN & Redux 🖥️🪐
 <br/>
 
+<div align="center">
+    <h5>Check it in ✅</h5>
+    <h3>
+        <a href="https://trello.com/b/hhkQyjTl/typeplanet-project">
+            Trello
+        </a>
+    </h3>
+</div>
+
 ## 📝 About
 
 TypePlanet is a social network aimed at software developers, where they can share their knowledge and ideas.
@@ -18,7 +27,10 @@ TypePlanet is a social network aimed at software developers, where they can shar
 2. [File Structure](#files)
 3. [Install](#install)
 4. [About the App](#app) 
+
     4.1. [API](#api)
+    <br>
+
     4.2. [Screenshots](#screens)
 5.  [Author](#author)
 
