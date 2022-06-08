@@ -8,6 +8,14 @@
         <a href="https://trello.com/b/hhkQyjTl/typeplanet-project">
             Trello
         </a>
+        |
+        <a href="https://www.youtube.com/watch?v=PTwHWTUxUoo&ab_channel=AntonioCort%C3%A9sJim%C3%A9nez">
+            Video (Spanish)
+        </a>
+        |
+        <a href="https://typeplanet.herokuapp.com/">
+            Heroku
+        </a>
     </h3>
 </div>
 
