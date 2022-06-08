@@ -31,7 +31,10 @@ TypePlanet is a social network aimed at software developers, where they can shar
     4.1. [API](#api)
     <br>
 
-    4.2. [Screenshots](#screens)
+    4.2. [Features](#features)
+    <br>
+
+    4.23 [Screenshots](#screens)
 5.  [Author](#author)
 
 <br/>
@@ -134,41 +137,59 @@ npm run dev
 (Open with Swagger Editor)
 
 
+<a name="features"></a>
+
+### 🧾 Features
+
+* User register & login
+* Create & edit profile
+* Auto random avatars for users (1-100 different avatars)
+* Users list
+* Notifications (toastify)
+* Create posts
+* Posts with categories
+* Filter posts by stack (front-end, back-end or all)
+* "Like", "Dislike" & "Comment" on a post
+* Level system for user (you gain level when commenting or creating a post)
+* Weather widget on home using your city
+* Information cards with blogs on home
+* Followers & following
+
 <a name="screens"></a>
 
 ### 📷 Screenshots
 
-### Login
+#### Login
 
 <img src="./docs/login.png">
 
-### Invalid Login
+#### Invalid Login
 
 <img src="./docs/invalidLogin.gif">
 
-### Register
+#### Register
 
 <img src="./docs/register.png">
 
-### Home
+#### Home
 
 <img src="./docs/home.png">
 
-### Home Without Profile
+#### Home Without Profile
 
 <img src="./docs/homeNoProf.png">
 
 <img src="./docs/noProfileDisabledMenu.png">
 
-### Create Profile
+#### Create Profile
 
 <img src="./docs/createProf.png">
 
-### Home Cards
+#### Home Cards
 
 <img src="./docs/homeCards.png">
 
-### Posts
+#### Posts
 
 <img src="./docs/posts.png">
 
@@ -176,32 +197,32 @@ npm run dev
 
 <img src="./docs/postsFilter.gif">
 
-### Post
+#### Post
 
 <img src="./docs/post.gif">
 
-### Post Comments
+#### Post Comments
 
 <img src="./docs/comments.gif">
 
 
-### AstroDevs
+#### AstroDevs
 
 <img src="./docs/astroDevs.gif">
 
-## Follow / Unfollow
+#### Follow / Unfollow
 
 <img src="./docs/followUnfollow.gif">
 
-### Profile
+#### Profile
 
 <img src="./docs/profile.gif">
 
-### Edit Profile
+#### Edit Profile
 
 <img src="./docs/editProf.png">
 
-### Logout
+#### Logout
 
 <img src="./docs/bye.gif">
 
