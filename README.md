@@ -144,6 +144,8 @@ npm run dev
 **[Download YAML File](https://mega.nz/file/dBYiTRoY#TTfR0qDpOyU0HJgXjVDBW8MRzDR4LAQYsyiqmx0x8po)**
 (Open with Swagger Editor)
 
+**[Download Postman Collection File](https://mega.nz/file/8EYzmBDI#zrBjeQNaDpEdAeP95aiPt8bWDyUlwCIxy40Z_XKsPAs)**
+
 
 <a name="features"></a>
 
