@@ -5,6 +5,10 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { register } from '../../actions/auth';
 
+import { Modal, Button } from 'react-bootstrap';
+
+import { FaQuestion } from 'react-icons/fa';
+
 // tostify
 import { ToastContainer } from 'react-toastify';
 
@@ -22,6 +26,11 @@ const Register = ({ register, isAuth }) => {
     // get props from formData
     const { name, email, password, city, birth } = formData;
 
+    // show reminder for password requeriments
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     const handleInput = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -29,7 +38,6 @@ const Register = ({ register, isAuth }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         register({ name, email, password, city, birth });
-
     };
 
     // if user auths then redirects to /home
@@ -74,8 +82,9 @@ const Register = ({ register, isAuth }) => {
                                                 name="email"
                                             />
                                         </div>
-                                        <div className="form-group form-outline form-white mb-4">
+                                        <div className="form-group form-outline form-white mb-4 d-flex">
                                             <input
+                                                id="pass"
                                                 class="form-control form-control-lg"
                                                 type="password"
                                                 placeholder="Password"
@@ -84,7 +93,27 @@ const Register = ({ register, isAuth }) => {
                                                 value={password}
                                                 onChange={(e) => handleInput(e)}
                                             />
+                                            <span className="btn-password btn" onClick={handleShow}><FaQuestion/></span>
                                         </div>
+                                        <Modal
+                                            show={show}
+                                            onHide={handleClose}
+                                            backdrop="static"
+                                            keyboard={false}
+                                        >
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Hey, dev!</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>
+                                                Your password must contains almost 6 characters to be valid
+                                            </Modal.Body>
+                                            <Modal.Footer>
+                                                <Button style={{ "background-color": "#a235e0", "border": "none" }} onClick={handleClose}>
+                                                    I know! 👩‍🚀
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal>
+
                                         <div className="form-group form-outline form-white mb-4">
                                             <input
                                                 class="form-control form-control-lg"
