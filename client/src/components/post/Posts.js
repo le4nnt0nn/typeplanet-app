@@ -73,7 +73,9 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                             )}
                         </div>
                     ) : (
-                        <h2 className="text-center">Ooops, there is no posts here :( </h2>
+                        <div>
+                            <h2 className="no-found-text text-center">Ooops, there is no posts here :( </h2>
+                        </div>
                     )}
                 </div>
             </body>
