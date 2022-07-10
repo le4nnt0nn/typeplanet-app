@@ -90,6 +90,24 @@
   color: #e9c642;
 }
 
+.search-user-input {
+  border-radius: 10px;
+  padding: 5px;
+  width: 400px;
+}
+
+.no-found-text {
+  color: rgb(176, 129, 194);
+  margin: 50px;
+}
+
+.astro-ups {
+  width: 300px;
+  transform: translatey(0px);
+	animation: float-ups 5s ease-in-out infinite;
+}
+
+
 /* Profile view styles */
 
 .back {
@@ -218,10 +236,39 @@
   background-color: rgb(236, 88, 88);
 }
 
+/* animations */
+@keyframes float-ups {
+	0% {
+		transform: translatey(0px);
+    transform: rotate(0)
+	}
+	50% {
+		transform: translatey(-20px);
+    transform: rotate(360deg)
+	}
+	100% {
+		transform: translatey(0px);
+    transform: rotate(0)
+	}
+}
+
 /* responsive */
+@media screen and (max-width: 1200px) {
+  .astro-ups {
+    width: 260px;
+  }
+}
+
 
 @media screen and (max-width: 600px) {
   .profile-card {
     width: 300px;
   }
+  .search-user-input {
+    width: 300px;
+  }
+  .astro-ups {
+    width: 200px;
+  }
 }
+
