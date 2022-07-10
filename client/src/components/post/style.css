@@ -310,9 +310,10 @@ textarea {
 }
 
 .btn-filter {
-  background-color: rgb(204, 204, 204);
+  background-color: rgb(221, 168, 218);
   font-size: 20px;
   font-weight: bold;
+  color: #292828;
 }
 
 .btn-filter:hover {
@@ -320,26 +321,28 @@ textarea {
   color: #ffe894;
 }
 
-.btn-front {
-  color: #b81919;
-}
-
-.btn-back {
-  color: #bd1f8d;
-}
-
 /* responsive */
 @media screen and (max-width: 600px) {
   textarea {
     width: 400px;
+    height: 400px;
   }
   .post-content {
-    font-size: 26px;
+    font-size: 23px;
   }
   .categories-buttons button {
     font-size: 18px;
   }
   .reset-btn {
     font-size: 20px;
+  }
+  .btn-filter {
+    font-size: 15px;
+  }
+  .comment-avatar {
+    width: 40%;
+  }
+  .comment-text {
+    font-size: 18px;
   }
 }
