@@ -19,7 +19,7 @@ const PostMaker = ({ addNewPost }) => {
     return (
         <>
             <div className="text-center">
-                <h3 className="mt-4">Share something</h3>
+                <h3 className="mt-4 main-text">Share something</h3>
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
@@ -43,7 +43,7 @@ const PostMaker = ({ addNewPost }) => {
                     <input type="submit" className="post-btn btn btn-dark my-1" value="Submit" />
                 </form>
                 <div className="categories-buttons">
-                    <h3 className="mt-3">Pick your category!</h3>
+                    <h3 className="mt-3 main-text">Pick your category!</h3>
                     <div className="first-categories-buttons mt-1">
                         <button
                             onClick={() => {

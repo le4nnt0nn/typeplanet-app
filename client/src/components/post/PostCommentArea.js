@@ -10,7 +10,7 @@ const PostCommentArea = ({ postId, addComment }) => {
         <>
             <div className="post-form">
                 <div className="text-center m-3">
-                    <h3>Leave a comment, dev!</h3>
+                    <h3 className="main-text">Leave a comment, dev!</h3>
                 </div>
                 <form
                     className="form text-center my-1"
