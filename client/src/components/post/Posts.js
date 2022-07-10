@@ -6,6 +6,10 @@ import { getAllPosts } from '../../actions/post';
 import NavbarRoot from '../setup/Navbar';
 import PostMaker from './PostMaker';
 
+import { FaFilter } from 'react-icons/fa';
+
+import { Modal, Button } from 'react-bootstrap';
+
 const Posts = ({ getAllPosts, post: { posts } }) => {
 
     // filter for posts
@@ -21,6 +25,26 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
         }, 1000)
     }, [getAllPosts]);
 
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    // filter function for pop up
+    function filterOn(f) {
+        if (f === 'front') {
+            setFilter('front')
+            handleClose()
+        }
+        if (f === 'back') {
+            setFilter('back')
+            handleClose()
+        }
+        if (f === '') {
+            setFilter('')
+            handleClose()
+        }
+    }
 
     return (
         <>
@@ -29,11 +53,34 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                 <div>
                     <PostMaker />
                     <div className="filter mx-auto text-center">
-                        <button className="btn text-center mx-auto btn-filter btn-front" onClick={() => setFilter('front')}>Show Front 👁️</button>
-                        <button className="btn text-center mx-auto btn-filter btn-back" onClick={() => setFilter('back')}>Show Back 🧠</button>
-                        <button className="btn text-center mx-auto btn-filter btn-all" onClick={() => setFilter('')}>All 🌌</button>
+                    <span className="btn-password btn" onClick={handleShow}><FaFilter/></span>
                     </div>
                 </div>
+                <Modal
+                        show={show}
+                        onHide={handleClose}
+                        backdrop="static"
+                        keyboard={false}
+                        className="modal-filter"
+                    >
+                        <Modal.Header closeButton>
+                            <Modal.Title>Time to filter!</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            Choose from these categories
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button className="btn text-center mx-auto btn-filter btn-front border-0" onClick={() => filterOn('front')}>
+                            Show Front 👁️
+                            </Button>
+                            <Button className="btn text-center mx-auto btn-filter btn-back border-0" onClick={() => filterOn('back')}>
+                            Show Back 🧠
+                            </Button>
+                            <Button className="btn text-center mx-auto btn-filter btn-all border-0" onClick={() => filterOn('')}>
+                            All 🌌
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                 <div>
                     {posts && posts.length > 0 ? (
                         <div>
