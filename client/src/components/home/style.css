@@ -18,6 +18,11 @@
     font-size: 40px;
 }
 
+.wave-back {
+  width: 100%;
+  background-size: cover;
+}
+
 /* no profile message */
 .no-profile p {
   color: rgb(219, 219, 219);

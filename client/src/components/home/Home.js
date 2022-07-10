@@ -110,6 +110,9 @@ const Home = ({
                     <div className="cards-wrapper mt-5 mb-5">
                         <Cards />
                     </div>
+                    <div>
+                        <img className="wave-back" src="waveBack.png" />
+                    </div>
                 </section>
             </body>
         </>
