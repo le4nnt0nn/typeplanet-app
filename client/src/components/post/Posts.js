@@ -6,14 +6,51 @@ import { getAllPosts } from '../../actions/post';
 import NavbarRoot from '../setup/Navbar';
 import PostMaker from './PostMaker';
 
-import { FaFilter } from 'react-icons/fa';
+import { FaBrain, FaEye, FaFilter } from 'react-icons/fa';
 
 import { Modal, Button } from 'react-bootstrap';
 
+// sound for search input
+import useSound from 'use-sound';
+import searchSound from '../../sounds/searchSound.mp3';
+
 const Posts = ({ getAllPosts, post: { posts } }) => {
+
 
     // filter for posts
     let [filter, setFilter] = useState('');
+
+    // get found posts by search
+    const [foundPosts, setFoundPosts] = useState(posts);
+
+    // the value of the search field 
+    const [name, setName] = useState('');
+
+    // handle actions for pop up
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    // declare search input sound
+    const [play] = useSound(searchSound);
+
+    const searchPost = (e) => {
+        const keyword = e.target.value;
+        // play type sound
+        play()
+        if (keyword !== '') {
+            const results = posts.filter((post) => {
+                return post.name.toLowerCase().startsWith(keyword.toLowerCase());
+            });
+            setFoundPosts(results);
+        } else {
+            setFoundPosts(posts);
+            // If the text field is empty, show all users
+        }
+
+        setName(keyword);
+    };
 
     // unmount component for cleanup
     useEffect(() => {
@@ -25,10 +62,14 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
         }, 1000)
     }, [getAllPosts]);
 
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    useEffect(() => {
+        let mounted = true
+        setTimeout(() => {
+            if (mounted) {
+                setFoundPosts(posts);
+            }
+        }, 2000)
+    }, [setFoundPosts, posts]);
 
     // filter function for pop up
     function filterOn(f) {
@@ -53,41 +94,48 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                 <div>
                     <PostMaker />
                     <div className="filter mx-auto text-center">
-                    <span className="btn-password btn" onClick={handleShow}><FaFilter/></span>
+                        <span className="btn-password btn" onClick={handleShow}>{filter==='front' ? (<FaEye/>) : (<span>{filter==='back' ? (<FaBrain/>) : (<FaFilter/>)}</span>)}</span>
+                        <input
+                        type="search"
+                        value={name}
+                        onChange={searchPost}
+                        className="search-user-input m-2 p-2"
+                        placeholder="Search posts by dev"
+                    />
                     </div>
                 </div>
                 <Modal
-                        show={show}
-                        onHide={handleClose}
-                        backdrop="static"
-                        keyboard={false}
-                        className="modal-filter"
-                    >
-                        <Modal.Header closeButton>
-                            <Modal.Title>Time to filter!</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                            Choose from these categories
-                        </Modal.Body>
-                        <Modal.Footer>
-                            <Button className="btn text-center mx-auto btn-filter btn-front border-0" onClick={() => filterOn('front')}>
+                    show={show}
+                    onHide={handleClose}
+                    backdrop="static"
+                    keyboard={false}
+                    className="modal-filter"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Time to filter!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        Choose from these categories
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button className="btn text-center mx-auto btn-filter btn-front border-0" onClick={() => filterOn('front')}>
                             Show Front 👁️
-                            </Button>
-                            <Button className="btn text-center mx-auto btn-filter btn-back border-0" onClick={() => filterOn('back')}>
+                        </Button>
+                        <Button className="btn text-center mx-auto btn-filter btn-back border-0" onClick={() => filterOn('back')}>
                             Show Back 🧠
-                            </Button>
-                            <Button className="btn text-center mx-auto btn-filter btn-all border-0" onClick={() => filterOn('')}>
+                        </Button>
+                        <Button className="btn text-center mx-auto btn-filter btn-all border-0" onClick={() => filterOn('')}>
                             All 🌌
-                            </Button>
-                        </Modal.Footer>
-                    </Modal>
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
                 <div>
-                    {posts && posts.length > 0 ? (
+                    {foundPosts.length && posts.length > 0 ? (
                         <div>
                             {filter === 'front' ? (
                                 <div>
                                     {
-                                        posts.filter(post =>
+                                        foundPosts.filter(post =>
                                             post.categories.includes('Angular')
                                             || post.categories.includes('React')
                                             || post.categories.includes('JS')).map(postsFiltered => (
@@ -102,7 +150,7 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                                     {filter === 'back' ? (
                                         <div>
                                             {
-                                                posts.filter(post =>
+                                                foundPosts.filter(post =>
                                                     post.categories.includes('Java')
                                                     || post.categories.includes('C#')).map(postsFiltered => (
                                                         <li>
@@ -112,7 +160,7 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                                             }
                                         </div>
                                     ) : (
-                                        posts.map((post) => (
+                                        foundPosts.map((post) => (
                                             <PostCard key={post._id} post={post} />
                                         ))
                                     )}
@@ -120,8 +168,9 @@ const Posts = ({ getAllPosts, post: { posts } }) => {
                             )}
                         </div>
                     ) : (
-                        <div>
+                        <div className="mx-auto text-center mb-5">
                             <h2 className="no-found-text text-center">Ooops, there is no posts here :( </h2>
+                            <img className="astro astro-ups" src="astroUps.png" alt="AstroUps"></img>
                         </div>
                     )}
                 </div>
